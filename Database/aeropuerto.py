@@ -200,7 +200,9 @@ def consultar_aerolinea (_nom_aerolinea):
 def consultar_avion ():
     con = conexion_db()
 
-    sql = """ SELECT id_avion FROM avion"""
+    sql = """ select id_avion, tipo_avion, descripcion, tipo_propulsion, capacidad, 
+            peso_nominal, num_motores from
+            (avion join modelo on avion.cod_modelo = modelo.cod_modelo)"""
 
     try:
         cursor = con.cursor()
@@ -221,8 +223,10 @@ def consultar_avion ():
 def seleccionar_avion (_id_avion):
     con = conexion_db()
 
-    sql = f""" SELECT id_avion, tipo_avion, capacidad, cod_modelo, propulsion, peso
-            FROM avion WHERE id_avion = {_id_avion}"""
+    sql = f""" Select id_avion, tipo_avion, descripcion, tipo_propulsion, capacidad, 
+                peso_nominal, num_motores from 
+                (avion join modelo on avion.cod_modelo = modelo.cod_modelo)
+                where id_avion = {_id_avion}"""
 
     try:
         cursor = con.cursor()

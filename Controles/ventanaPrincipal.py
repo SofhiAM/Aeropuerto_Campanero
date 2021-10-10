@@ -93,8 +93,16 @@ class Principal (QWidget, mainWindow):
             print (nit_aerolinea)
             aerolinea = aero_seleccionada[0].row()
 
-            if Aerolinea.borrar_datos_aerolinea(self, nit_aerolinea):
-                self.tb_aeroRegistradas.removeRow(aerolinea)
+            # Mensaje de confirmación de si quiere borrar la aerolinea
+            dlg = QMessageBox.question(self, "Borrar aerolínea", 
+                        "¿Esta seguro que quiere eliminar esta aerolínea?", 
+                        QMessageBox.Ok, QMessageBox.Cancel)
+
+            #Si presiona Ok 
+            if dlg == QMessageBox.Ok:
+                if Aerolinea.borrar_datos_aerolinea(self, nit_aerolinea):
+                    self.tb_aeroRegistradas.removeRow(aerolinea)
+                    QMessageBox.information(self, "Eliminada", "Aerolinea eliminada con éxito", QMessageBox.Ok)
 
         else:
             dlg = QMessageBox(self)
@@ -104,7 +112,7 @@ class Principal (QWidget, mainWindow):
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Critical)
             dlg.show()
-
+            
 #--------------------------------------------------------------------------------
     def actualizar_tb_aerolinea(self):
         data = seleccionar_todas_aerolineas()

@@ -49,7 +49,40 @@ class Vuelos (QWidget,CrearVuelo):
         #Boton Borrar vuelo
         self.bt_eliminarUNVuelo.clicked.connect(self.eliminar_vuelo)
 
+        #Evento del combo, para que cuando se seleccione llegada se bloquee destino
+        # y cuando se seleccione salida se bloquee origen.
+        self.bloqueo_combo_box()
+        self.event_tipo_vuelo()
+
 # ///////////////////////////////////// CREAR VUELOS /////////////////////////////////////////
+    def event_tipo_vuelo (self):
+        self.cb_tipovuelo.activated.connect(self.bloqueo_combo_box)
+    
+    def bloqueo_combo_box(self):
+        tipo_vuelo = self.cb_tipovuelo.currentText()
+        ciudades =("Cali", "Bogota", "Cartagena", "Pasto", "Pereira")
+
+        if tipo_vuelo == "Llegada":
+            self.cb_Destino.clear()
+            self.cb_Origen.clear()
+            self.cb_Destino.setDisabled (True)
+            self.cb_Origen.setDisabled (False)
+
+            #Combo origen
+            self.cb_Origen.addItems(ciudades)
+            #Combo destino = Medellín
+            self.cb_Destino.addItem("Medellín")
+            
+        if tipo_vuelo == "Salida":
+            self.cb_Destino.clear()
+            self.cb_Origen.clear()
+            self.cb_Origen.setDisabled (True)
+            self.cb_Destino.setDisabled (False)
+
+            #Combo origen = Medellín
+            self.cb_Origen.addItem("Medellín")
+            #Combo destino 
+            self.cb_Destino.addItems(ciudades)
 
     def verificacion_campos_general (self):
         tipo_vuelo = self.cb_tipovuelo.currentText()
@@ -75,15 +108,27 @@ class Vuelos (QWidget,CrearVuelo):
                 b = True
 
             else:
-                dlg = QMessageBox(self)
-                dlg.setWindowTitle("Error")
-                dlg.setText("Para guardar la información general todos los\n"+
-                            "campos deben estar llenos.\n"+
-                            "Por favor revise e intente de nuevo")
-                dlg.setStandardButtons(QMessageBox.Ok)
-                dlg.setIcon(QMessageBox.Critical)
-                dlg.show()
                 b = False
+
+        if b == True:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Siguiente")
+            dlg.setText("Datos completamente llenos.\n"+
+                        "Puede pasar a llenar los datos de avión.")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Information)
+            dlg.show()
+            
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para guardar la información general todos los\n"+
+                        "campos deben estar llenos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+            #b = False
         print("revisado, pasa av")
         print (general)
         return b
@@ -155,15 +200,28 @@ class Vuelos (QWidget,CrearVuelo):
                 b = True
 
             else:
-                dlg = QMessageBox(self)
-                dlg.setWindowTitle("Error")
-                dlg.setText("Para guardar la información del avión todos los\n"+
-                            "campos deben estar llenos.\n"+
-                            "Por favor revise e intente de nuevo")
-                dlg.setStandardButtons(QMessageBox.Ok)
-                dlg.setIcon(QMessageBox.Critical)
-                dlg.show()
                 b = False
+
+        if b == True:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Siguiente")
+            dlg.setText("Datos completamente llenos.\n"+
+                        "Puede pasar a seleccionar tripulación.")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Information)
+            dlg.show()
+            
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para guardar la información general todos los\n"+
+                        "campos deben estar llenos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+            #b = False
+
         print("revisado, pasa trip")
         print (avion)
         return b
