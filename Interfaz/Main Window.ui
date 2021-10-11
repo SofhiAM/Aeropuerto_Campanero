@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>805</width>
-    <height>493</height>
+    <width>1032</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
      <x>0</x>
      <y>10</y>
      <width>221</width>
-     <height>471</height>
+     <height>591</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -62,7 +62,7 @@
       <x>40</x>
       <y>200</y>
       <width>141</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -99,9 +99,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>280</y>
+      <y>350</y>
       <width>141</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -138,9 +138,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>240</y>
+      <y>250</y>
       <width>141</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -177,9 +177,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>320</y>
+      <y>400</y>
       <width>141</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -217,9 +217,9 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>380</y>
+      <y>470</y>
       <width>71</width>
-      <height>61</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
@@ -238,21 +238,29 @@
      <string/>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-border-image: url(:/cct/icono_cerrarsesion.jpg);
-border-image: url(:/cct/BT_cerrarSesion.png);</string>
+     <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>Icons/door_outside.png</normaloff>Icons/door_outside.png</iconset>
+      <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/cerrar_sesion.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/cerrar_sesion.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>61</width>
-      <height>61</height>
+      <width>80</width>
+      <height>80</height>
      </size>
     </property>
     <property name="checkable">
@@ -281,7 +289,7 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>440</y>
+      <y>550</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -324,6 +332,45 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="bt_Vuelos_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>300</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(22, 117, 163)</string>
+    </property>
+    <property name="text">
+     <string>Agenda</string>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>309</number>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="Line" name="line">
    <property name="geometry">
@@ -331,7 +378,7 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
      <x>213</x>
      <y>0</y>
      <width>21</width>
-     <height>481</height>
+     <height>601</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -346,20 +393,20 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
     <rect>
      <x>240</x>
      <y>10</y>
-     <width>551</width>
-     <height>461</height>
+     <width>781</width>
+     <height>581</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="pg_bienvenido">
     <widget class="QLabel" name="label_cerrarsesion_8">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>310</y>
-       <width>431</width>
+       <x>110</x>
+       <y>430</y>
+       <width>571</width>
        <height>51</height>
       </rect>
      </property>
@@ -372,16 +419,16 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
       </font>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Sistema de Gestión Aeropuerto el Campanero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#000000;&quot;&gt;Sistema de Gestión Aeropuerto el Campanero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>120</y>
-       <width>241</width>
-       <height>211</height>
+       <x>240</x>
+       <y>150</y>
+       <width>301</width>
+       <height>301</height>
       </rect>
      </property>
      <property name="text">
@@ -397,10 +444,10 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
     <widget class="QLabel" name="label_cerrarsesion_9">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>100</y>
-       <width>181</width>
-       <height>31</height>
+       <x>290</x>
+       <y>110</y>
+       <width>221</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -412,7 +459,7 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
       </font>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#000000;&quot;&gt;BIENVENIDO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt; color:#000000;&quot;&gt;BIENVENIDO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
@@ -420,16 +467,16 @@ border-image: url(:/cct/BT_cerrarSesion.png);</string>
     <widget class="QPushButton" name="bt_refreshUsuario">
      <property name="geometry">
       <rect>
-       <x>500</x>
-       <y>410</y>
-       <width>41</width>
-       <height>31</height>
+       <x>600</x>
+       <y>520</y>
+       <width>131</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -451,7 +498,7 @@ QPushButton:pressed
 }</string>
      </property>
      <property name="text">
-      <string/>
+      <string>Actualizar</string>
      </property>
      <property name="icon">
       <iconset>
@@ -470,8 +517,8 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_buscarUsuario">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>20</y>
+       <x>510</x>
+       <y>30</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -479,7 +526,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -520,10 +567,10 @@ QPushButton:pressed
     <widget class="QGroupBox" name="groupBox_4">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>80</y>
-       <width>541</width>
-       <height>311</height>
+       <x>40</x>
+       <y>100</y>
+       <width>701</width>
+       <height>401</height>
       </rect>
      </property>
      <property name="font">
@@ -535,43 +582,179 @@ QPushButton:pressed
       </font>
      </property>
      <property name="title">
-      <string>Usuarios Registradas</string>
+      <string>Usuarios Registrados</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
-     <widget class="QTableWidget" name="tb_usuarios">
+     <widget class="QTableWidget" name="tb_vistaGeneral_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>501</width>
-        <height>251</height>
+        <x>10</x>
+        <y>30</y>
+        <width>681</width>
+        <height>361</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Open Sans</family>
+        <weight>1</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
-      <property name="gridStyle">
-       <enum>Qt::SolidLine</enum>
+      <property name="styleSheet">
+       <string notr="true">color : rgb(0,0,0);
+font: 9 pt &quot;Open Sans&quot;</string>
       </property>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>22</red>
+          <green>117</green>
+          <blue>163</blue>
+         </color>
+        </brush>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tipo ID</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>22</red>
+          <green>117</green>
+          <blue>163</blue>
+         </color>
+        </brush>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nombre</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>22</red>
+          <green>117</green>
+          <blue>163</blue>
+         </color>
+        </brush>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Apellido</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>22</red>
+          <green>117</green>
+          <blue>163</blue>
+         </color>
+        </brush>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Correo</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>22</red>
+          <green>117</green>
+          <blue>163</blue>
+         </color>
+        </brush>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Cuenta</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="foreground">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>22</red>
+          <green>117</green>
+          <blue>163</blue>
+         </color>
+        </brush>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QPushButton" name="bt_eliminarUsuario">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>410</y>
-       <width>161</width>
-       <height>31</height>
+       <x>220</x>
+       <y>520</y>
+       <width>171</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -612,9 +795,9 @@ QPushButton:pressed
     <widget class="QLineEdit" name="le_buscarUsuario">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>20</y>
-       <width>211</width>
+       <x>270</x>
+       <y>30</y>
+       <width>221</width>
        <height>31</height>
       </rect>
      </property>
@@ -640,16 +823,16 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_editarUsuario">
      <property name="geometry">
       <rect>
-       <x>350</x>
-       <y>410</y>
-       <width>141</width>
-       <height>31</height>
+       <x>420</x>
+       <y>520</y>
+       <width>151</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -691,15 +874,15 @@ QPushButton:pressed
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>410</y>
-       <width>161</width>
-       <height>31</height>
+       <y>520</y>
+       <width>171</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -740,8 +923,8 @@ QPushButton:pressed
     <widget class="QLabel" name="label_cerrarsesion_10">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>20</y>
+       <x>140</x>
+       <y>30</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -763,10 +946,10 @@ QPushButton:pressed
     <widget class="QGroupBox" name="groupBox">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>30</x>
        <y>80</y>
-       <width>541</width>
-       <height>311</height>
+       <width>711</width>
+       <height>441</height>
       </rect>
      </property>
      <property name="font">
@@ -786,10 +969,10 @@ QPushButton:pressed
      <widget class="QTableWidget" name="tb_aeroRegistradas">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>521</width>
-        <height>271</height>
+        <x>20</x>
+        <y>40</y>
+        <width>671</width>
+        <height>381</height>
        </rect>
       </property>
       <property name="font">
@@ -893,7 +1076,7 @@ QPushButton:pressed
     <widget class="QLineEdit" name="le_buscarAero">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>130</x>
        <y>20</y>
        <width>351</width>
        <height>31</height>
@@ -921,7 +1104,7 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_buscarAerolinea">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>500</x>
        <y>20</y>
        <width>91</width>
        <height>31</height>
@@ -930,7 +1113,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -972,15 +1155,15 @@ QPushButton:pressed
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>410</y>
-       <width>161</width>
+       <y>530</y>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1021,16 +1204,16 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_editarAerolinea">
      <property name="geometry">
       <rect>
-       <x>350</x>
-       <y>410</y>
-       <width>141</width>
+       <x>430</x>
+       <y>530</y>
+       <width>161</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1071,16 +1254,16 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_refreshAerolinea">
      <property name="geometry">
       <rect>
-       <x>500</x>
-       <y>410</y>
-       <width>41</width>
+       <x>620</x>
+       <y>530</y>
+       <width>131</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1102,7 +1285,7 @@ QPushButton:pressed
 }</string>
      </property>
      <property name="text">
-      <string/>
+      <string>Actualizar</string>
      </property>
      <property name="icon">
       <iconset>
@@ -1121,16 +1304,16 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_eliminarAerolinea">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>410</y>
-       <width>161</width>
+       <x>230</x>
+       <y>530</y>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1169,14 +1352,14 @@ QPushButton:pressed
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="pg_vuelos">
+   <widget class="QWidget" name="pg_agenda">
     <widget class="QGroupBox" name="groupBox_2">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>30</x>
        <y>80</y>
-       <width>541</width>
-       <height>291</height>
+       <width>721</width>
+       <height>391</height>
       </rect>
      </property>
      <property name="font">
@@ -1198,8 +1381,8 @@ QPushButton:pressed
        <rect>
         <x>20</x>
         <y>30</y>
-        <width>501</width>
-        <height>241</height>
+        <width>681</width>
+        <height>341</height>
        </rect>
       </property>
       <property name="currentIndex">
@@ -1209,10 +1392,10 @@ QPushButton:pressed
        <widget class="QTableWidget" name="tb_vistaGeneral">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>0</x>
           <y>0</y>
-          <width>491</width>
-          <height>241</height>
+          <width>681</width>
+          <height>341</height>
          </rect>
         </property>
         <property name="font">
@@ -1227,6 +1410,50 @@ QPushButton:pressed
          <string notr="true">color : rgb(0,0,0);
 font: 9 pt &quot;Open Sans&quot;</string>
         </property>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hora</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
         <column>
          <property name="text">
           <string>Codigo</string>
@@ -1339,6 +1566,52 @@ font: 9 pt &quot;Open Sans&quot;</string>
         </column>
         <column>
          <property name="text">
+          <string>Estado</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="sk_salida">
+       <widget class="QTableWidget" name="tb_vistaSalida">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>681</width>
+          <height>341</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <weight>1</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color : rgb(0,0,0);
+font: 9 pt &quot;Open Sans&quot;</string>
+        </property>
+        <column>
+         <property name="text">
           <string>Fecha</string>
          </property>
          <property name="font">
@@ -1383,7 +1656,7 @@ font: 9 pt &quot;Open Sans&quot;</string>
         </column>
         <column>
          <property name="text">
-          <string>Avión</string>
+          <string>Codigo</string>
          </property>
          <property name="font">
           <font>
@@ -1405,7 +1678,7 @@ font: 9 pt &quot;Open Sans&quot;</string>
         </column>
         <column>
          <property name="text">
-          <string>Aerolinea</string>
+          <string>Vuelo</string>
          </property>
          <property name="font">
           <font>
@@ -1427,7 +1700,7 @@ font: 9 pt &quot;Open Sans&quot;</string>
         </column>
         <column>
          <property name="text">
-          <string>Piloto</string>
+          <string>Destino</string>
          </property>
          <property name="font">
           <font>
@@ -1449,7 +1722,7 @@ font: 9 pt &quot;Open Sans&quot;</string>
         </column>
         <column>
          <property name="text">
-          <string>Copiloto</string>
+          <string>Estado</string>
          </property>
          <property name="font">
           <font>
@@ -1469,251 +1742,170 @@ font: 9 pt &quot;Open Sans&quot;</string>
           </brush>
          </property>
         </column>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="sk_salida">
-       <widget class="QTableWidget" name="tb_vuelosSalida">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>501</width>
-          <height>241</height>
-         </rect>
-        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="sk_llegada">
-       <widget class="QTableWidget" name="tb_vuelosLlegada">
+       <widget class="QTableWidget" name="tb_vistaLlegada">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>501</width>
-          <height>241</height>
+          <width>681</width>
+          <height>341</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <weight>1</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color : rgb(0,0,0);
+font: 9 pt &quot;Open Sans&quot;</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hora</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Codigo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Vuelo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Origen</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Estado</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
        </widget>
       </widget>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_cerrarsesion_4">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>430</y>
-       <width>121</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Editar Agenda&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="bt_editarAgenda">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>380</y>
-       <width>51</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton:hover
-{
-	border-style: solid;
-   	background-color:#bbdefb;
-
-}
-
-QPushButton:pressed
-{
-	background-color:#0069c0;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Ventanas/Icons/editar.png</normaloff>../Ventanas/Icons/editar.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>50</width>
-       <height>61</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="bt_vuelosSalida">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>380</y>
-       <width>51</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton:hover
-{
-	border-style: solid;
-   	background-color:#bbdefb;
-
-}
-
-QPushButton:pressed
-{
-	background-color:#0069c0;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Ventanas/Icons/Despegue.png</normaloff>../Ventanas/Icons/Despegue.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>50</width>
-       <height>61</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="bt_vuelosLlegada">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>380</y>
-       <width>51</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton:hover
-{
-	border-style: solid;
-   	background-color:#bbdefb;
-
-}
-
-QPushButton:pressed
-{
-	background-color:#0069c0;
-}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Ventanas/Icons/Aterrizaje.png</normaloff>../Ventanas/Icons/Aterrizaje.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>50</width>
-       <height>61</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_cerrarsesion_3">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>430</y>
-       <width>121</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Vuelos de Llegada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_cerrarsesion_2">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>430</y>
-       <width>111</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Vuelos de Salida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="cb_busca_por">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>130</x>
        <y>30</y>
        <width>121</width>
        <height>31</height>
@@ -1729,16 +1921,16 @@ QPushButton:pressed
     <widget class="QLabel" name="label_cerrarsesion_5">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>10</y>
+       <x>40</x>
+       <y>30</y>
        <width>81</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1750,9 +1942,9 @@ QPushButton:pressed
     <widget class="QLineEdit" name="le_buscarAgenda">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>270</x>
        <y>30</y>
-       <width>181</width>
+       <width>201</width>
        <height>31</height>
       </rect>
      </property>
@@ -1778,7 +1970,7 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_buscarAgenda">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>490</x>
        <y>30</y>
        <width>91</width>
        <height>31</height>
@@ -1787,7 +1979,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1828,7 +2020,7 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_refreshAgenda">
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>590</x>
        <y>30</y>
        <width>111</width>
        <height>31</height>
@@ -1837,7 +2029,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1875,40 +2067,717 @@ QPushButton:pressed
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_cerrarsesion_6">
+    <widget class="QStackedWidget" name="stackedWidget_2">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>430</y>
-       <width>91</width>
-       <height>21</height>
+       <y>480</y>
+       <width>731</width>
+       <height>91</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Vista General&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
+     <widget class="QWidget" name="page_4">
+      <widget class="QLabel" name="label_cerrarsesion_4">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Info. Vuelo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_vuelosSalida">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>10</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/Despegue.png</normaloff>../Ventanas/Icons/Despegue.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>61</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_cerrarsesion_2">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>60</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Vuelos de Salida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_cerrarsesion_3">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>60</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Vuelos de Llegada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_vistaGeneral">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/Agenda.png</normaloff>../Ventanas/Icons/Agenda.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>61</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_infoVuelo">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>10</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/vuelo.png</normaloff>../Ventanas/Icons/vuelo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>61</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_agendarVuelo">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>10</y>
+         <width>61</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/agendar_vuelo.png</normaloff>../Ventanas/Icons/agendar_vuelo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>61</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_cerrarsesion_17">
+       <property name="geometry">
+        <rect>
+         <x>500</x>
+         <y>60</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Agendar Vuelo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_modificarvuelo">
+       <property name="geometry">
+        <rect>
+         <x>640</x>
+         <y>10</y>
+         <width>61</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/modificar_vuelo.png</normaloff>../Ventanas/Icons/modificar_vuelo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>61</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_cerrarsesion_6">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Vista General&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_vuelosLlegada">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>10</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/Aterrizaje.png</normaloff>../Ventanas/Icons/Aterrizaje.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>61</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_cerrarsesion_18">
+       <property name="geometry">
+        <rect>
+         <x>610</x>
+         <y>60</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Modificar vuelo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <zorder>label_cerrarsesion_6</zorder>
+      <zorder>bt_vistaGeneral</zorder>
+      <zorder>label_cerrarsesion_3</zorder>
+      <zorder>label_cerrarsesion_18</zorder>
+      <zorder>label_cerrarsesion_17</zorder>
+      <zorder>bt_agendarVuelo</zorder>
+      <zorder>bt_vuelosSalida</zorder>
+      <zorder>label_cerrarsesion_2</zorder>
+      <zorder>bt_infoVuelo</zorder>
+      <zorder>bt_modificarvuelo</zorder>
+      <zorder>bt_vuelosLlegada</zorder>
+      <zorder>label_cerrarsesion_4</zorder>
+     </widget>
+     <widget class="QWidget" name="page_5">
+      <widget class="QLabel" name="lb_Identificador_6">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#000000;&quot;&gt;Código&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_nuevafecha">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>40</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="duplicatesEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>TRIP1234</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TRIP6743</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TRIP4321</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="lb_Identificador_7">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#000000;&quot;&gt;Nueva fecha&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_guardarvuelo">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>10</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Guardar</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_cancelarvuelo">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>50</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_Identificador_8">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>40</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:400; color:#000000;&quot;&gt;CODE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_Identificador_9">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>10</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#000000;&quot;&gt;Nueva hora&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_nuevahora">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>40</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="duplicatesEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>TRIP1234</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TRIP6743</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TRIP4321</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QPushButton" name="bt_vistaGeneral">
+   </widget>
+   <widget class="QWidget" name="pg_vuelos">
+    <widget class="QPushButton" name="bt_aviones">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>380</y>
-       <width>51</width>
-       <height>51</height>
+       <x>210</x>
+       <y>530</y>
+       <width>131</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1930,16 +2799,2149 @@ QPushButton:pressed
 }</string>
      </property>
      <property name="text">
-      <string/>
+      <string>Aviones</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../Ventanas/Icons/Agenda.png</normaloff>../Ventanas/Icons/Agenda.png</iconset>
+       <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/agregar_avion.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/agregar_avion.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>50</width>
-       <height>61</height>
+       <width>40</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="bt_vuelos">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>530</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Nirmala UI</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+     </property>
+     <property name="text">
+      <string>Vuelos</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/vuelo.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/vuelo.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="bt_newTrip">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>530</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Nirmala UI</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+     </property>
+     <property name="text">
+      <string>Nueva Tripulación</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/piloto.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/piloto.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QStackedWidget" name="sw_vuelos_av_trip">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>731</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="pg_agendaAerolin">
+      <widget class="QGroupBox" name="groupBox_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>90</y>
+         <width>731</width>
+         <height>411</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="title">
+        <string>Agenda de Aerolinea</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <widget class="QTableWidget" name="tb_vistaAerolinea">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>691</width>
+          <height>351</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <weight>1</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color : rgb(0,0,0);
+font: 9 pt &quot;Open Sans&quot;</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hora</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Codigo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tipo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Vuelo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Destino</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Origen</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Estado</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QComboBox" name="cb_busca_por_2">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>20</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Open Sans</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_cerrarsesion_20">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Buscar por&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_buscarAgenda_2">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>20</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Buscar</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/buscar.png</normaloff>../Ventanas/Icons/buscar.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_buscarAgenda_2">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>20</y>
+         <width>201</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Open Sans</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_refreshAgenda_2">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>20</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Actualizar</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/recarga.png</normaloff>../Ventanas/Icons/recarga.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pg_agendaPendiente">
+      <widget class="QGroupBox" name="groupBox_13">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>731</width>
+         <height>411</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="title">
+        <string>Agenda Pendiente por enviar</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <widget class="QTableWidget" name="tb_vistaAerolinea_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>691</width>
+          <height>351</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <weight>1</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color : rgb(0,0,0);
+font: 9 pt &quot;Open Sans&quot;</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hora</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Codigo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tipo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Vuelo</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Destino</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Origen</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Estado</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="foreground">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>22</red>
+            <green>117</green>
+            <blue>163</blue>
+           </color>
+          </brush>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="bt_agregar_avion_2">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>460</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Enviar agenda</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pg_newTrip">
+      <widget class="QLabel" name="lb_NumeroID_2">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>290</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Licencia&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="textedit_licencia">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>290</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="date_fechaUltimaRevision">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>360</y>
+         <width>110</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_tipoID">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>230</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Tipo ID&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_codTripulacion">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>110</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Cod Tripulación&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_NumeroID">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>230</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Numero ID&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_tipoID_2">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>290</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Horas de vuelo&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_Nombre">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>170</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Nombre&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="textedit_codTripulacion">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>110</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_tipoID_3">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>360</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Fecha última rev. médica&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_GuardarTrip_3">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>420</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{	
+	height: 2em;
+ 	border-style: solid;
+	border-width: 2px;
+ 	border-color: #0069c0;
+	font-weight: bold;
+}
+
+QPushButton:hover
+{
+   	background-color:#0069c0;
+	color:white;
+}</string>
+       </property>
+       <property name="text">
+        <string>GUARDAR</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/save-icon.png</normaloff>../Ventanas/Icons/save-icon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="textedit_numeroID">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>230</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cb_tipoID">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>230</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="duplicatesEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Cédula</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Cédula Extranjería </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NIT</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLineEdit" name="textedit_nombre">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>170</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_HorasVuelo">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>290</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color : rgb(0,0,0);
+font: 12pt &quot;Nirmala UI&quot;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_apellido">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>170</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Apellido&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="textedit_Apellido">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>170</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lb_facturanum_5">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>391</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 63 26pt &quot;Open Sans Semibold&quot;;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:400; color:#1675a3;&quot;&gt;Registrar Tripulación&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="bt_AgregarTrip">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>420</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Nirmala UI</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{	
+	height: 2em;
+ 	border-style: solid;
+	border-width: 2px;
+ 	border-color: #0069c0;
+	font-weight: bold;
+}
+
+QPushButton:hover
+{
+   	background-color:#0069c0;
+	color:white;
+}</string>
+       </property>
+       <property name="text">
+        <string>AGREGAR TRIP.</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Ventanas/Icons/agregar_tripulacion.png</normaloff>../Ventanas/Icons/agregar_tripulacion.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="pg_aviones">
+      <widget class="QStackedWidget" name="sw_reg_ver_avion">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>671</width>
+         <height>481</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="pg_reg_avion">
+        <widget class="QLabel" name="lb_Modelo_2">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>190</y>
+           <width>61</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Modelo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_PesoNominal_2">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>260</y>
+           <width>111</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Peso Nominal&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spinBox_MotoresEA">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>300</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 12pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>4</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="bt_checkIDavion">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>120</y>
+           <width>41</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../Ventanas/Icons/check.png</normaloff>../Ventanas/Icons/check.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spinBox_CapacidadEA">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>300</y>
+           <width>81</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 12pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cb_PropulsionEA">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>190</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Reacción</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Turbo Hélice</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Hélice</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QPushButton" name="bt_aceptarAVEA">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>390</y>
+           <width>171</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton
+{	
+	height: 2em;
+ 	border-style: solid;
+	border-width: 2px;
+ 	border-color: #0069c0;
+	font-weight: bold;
+}
+
+QPushButton:hover
+{
+   	background-color:#0069c0;
+	color:white;
+}</string>
+         </property>
+         <property name="text">
+          <string>GUARDAR AVION</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../Ventanas/Icons/agregar_avion.png</normaloff>../Ventanas/Icons/agregar_avion.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_TipodeAvion_2">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>120</y>
+           <width>111</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Tipo de Avión&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_Capacidad_2">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>260</y>
+           <width>81</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Capacidad&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_Motores_2">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>260</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Motores&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_facturanum_2">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>50</y>
+           <width>391</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 63 26pt &quot;Open Sans Semibold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:400; color:#1675a3;&quot;&gt;Registrar avion&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_identificadorEA">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>120</y>
+           <width>101</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_Propulsion_2">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>190</y>
+           <width>91</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Propulsión&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_Identificador_5">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>140</y>
+           <width>101</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:400; color:#00aa00;&quot;&gt;ID Disponible&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cb_pasajerosEA">
+         <property name="geometry">
+          <rect>
+           <x>500</x>
+           <y>120</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Pasajeros</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Carga</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QSpinBox" name="spinBox_pesoNomEA">
+         <property name="geometry">
+          <rect>
+           <x>420</x>
+           <y>300</y>
+           <width>81</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 12pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="maximum">
+          <number>1000</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lb_Identificador_3">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>120</y>
+           <width>101</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Identificador&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cb_PropulsionEA_2">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>190</y>
+           <width>161</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="pg_vista_aviones">
+        <widget class="QLabel" name="label_cerrarsesion_21">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>10</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>9</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Código de Avión&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>60</y>
+           <width>671</width>
+           <height>411</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>Aviones registrados</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <widget class="QTableWidget" name="tb_avionesregistradosAV">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>40</y>
+            <width>631</width>
+            <height>321</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+            <weight>1</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color : rgb(0,0,0);
+font: 9 pt &quot;Open Sans&quot;</string>
+          </property>
+          <column>
+           <property name="text">
+            <string>Identificador </string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tipo</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Modelo</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Propulsión</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Capacidad</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Peso</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Motores</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Nirmala UI</family>
+             <pointsize>11</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>22</red>
+              <green>117</green>
+              <blue>163</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+         </widget>
+         <widget class="QPushButton" name="bt_eliminar_avion">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>370</y>
+            <width>111</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Nirmala UI</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+          </property>
+          <property name="text">
+           <string>Eliminar </string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="bt_agregar_avion">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>370</y>
+            <width>111</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Nirmala UI</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+          </property>
+          <property name="text">
+           <string>Agregar</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QPushButton" name="bt_buscarVuelo_2">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>10</y>
+           <width>91</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Nirmala UI</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../Ventanas/Icons/buscar.png</normaloff>../Ventanas/Icons/buscar.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cb_codigoavionAV">
+         <property name="geometry">
+          <rect>
+           <x>270</x>
+           <y>10</y>
+           <width>171</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="bt_newTrip_2">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>530</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Nirmala UI</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+     </property>
+     <property name="text">
+      <string>Agenda Pendiente</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/enviar.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/enviar.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>50</height>
       </size>
      </property>
      <property name="flat">
@@ -1951,10 +4953,10 @@ QPushButton:pressed
     <widget class="QGroupBox" name="groupBox_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>70</y>
-       <width>541</width>
-       <height>321</height>
+       <width>741</width>
+       <height>441</height>
       </rect>
      </property>
      <property name="font">
@@ -1974,10 +4976,10 @@ QPushButton:pressed
      <widget class="QTableWidget" name="tb_hangares">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>231</width>
-        <height>271</height>
+        <x>40</x>
+        <y>40</y>
+        <width>241</width>
+        <height>341</height>
        </rect>
       </property>
       <property name="font">
@@ -2037,10 +5039,10 @@ QPushButton:pressed
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>20</y>
-        <width>271</width>
-        <height>291</height>
+        <x>300</x>
+        <y>30</y>
+        <width>421</width>
+        <height>401</height>
        </rect>
       </property>
       <property name="font">
@@ -2052,15 +5054,189 @@ QPushButton:pressed
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_3">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>30</y>
+          <width>291</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/image_hangar.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_cerrarsesion_19">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>270</y>
+          <width>361</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans Semibold</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Sistema de Gestión Aeropuerto el Campanero&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page">
+       <widget class="QLabel" name="lb_Identificador_4">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>200</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Capacidad m&lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="textedit_codigoRH">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>150</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lb_facturanum">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>80</y>
+          <width>251</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 63 26pt &quot;Open Sans Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:400; color:#1675a3;&quot;&gt;Registrar Hangar&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lb_Identificador_2">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>150</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 12pt &quot;Nirmala UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Código&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="textedit_capacidadRH">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>200</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Nirmala UI&quot;;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="bt_GuardarTrip">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>270</y>
+          <width>121</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Nirmala UI</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{	
+	height: 2em;
+ 	border-style: solid;
+	border-width: 2px;
+ 	border-color: #0069c0;
+	font-weight: bold;
+}
+
+QPushButton:hover
+{
+   	background-color:#0069c0;
+	color:white;
+}</string>
+        </property>
+        <property name="text">
+         <string>GUARDAR</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/save-icon.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/save-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="page_2">
        <widget class="QLabel" name="lb_nomHangar">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>100</x>
           <y>10</y>
           <width>231</width>
-          <height>31</height>
+          <height>41</height>
          </rect>
         </property>
         <property name="font">
@@ -2070,7 +5246,7 @@ QPushButton:pressed
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#1675a3;&quot;&gt;Hangar&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#1675a3;&quot;&gt;Hangar&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="textFormat">
          <enum>Qt::RichText</enum>
@@ -2079,16 +5255,16 @@ QPushButton:pressed
        <widget class="QLabel" name="label_cerrarsesion_12">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>50</y>
-          <width>61</width>
+          <x>90</x>
+          <y>60</y>
+          <width>71</width>
           <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Nirmala UI</family>
-          <pointsize>10</pointsize>
+          <pointsize>11</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -2100,49 +5276,9 @@ QPushButton:pressed
        <widget class="QLabel" name="lb_ModelodeAvion">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>70</y>
+          <x>60</x>
+          <y>90</y>
           <width>131</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Boeing 747&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_cerrarsesion_11">
-        <property name="geometry">
-         <rect>
-          <x>160</x>
-          <y>50</y>
-          <width>61</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>9</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Aerolínea&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="lb_NombreAerolinea">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>70</y>
-          <width>121</width>
           <height>31</height>
          </rect>
         </property>
@@ -2153,15 +5289,55 @@ QPushButton:pressed
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#000000;&quot;&gt;Avianca&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Boeing 747&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_cerrarsesion_11">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>60</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Nirmala UI</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Aerolínea&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lb_NombreAerolinea">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>90</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Nirmala UI</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; color:#000000;&quot;&gt;Avianca&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_cerrarsesion_13">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>110</y>
-          <width>111</width>
+          <x>80</x>
+          <y>160</y>
+          <width>121</width>
           <height>31</height>
          </rect>
         </property>
@@ -2174,28 +5350,33 @@ QPushButton:pressed
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Hora de Entrada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Hora de Entrada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="lb_fechaEntrada">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>140</y>
+          <x>230</x>
+          <y>200</y>
           <width>101</width>
           <height>31</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#000000;&quot;&gt;01/01/2021&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#000000;&quot;&gt;01/01/2021&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_cerrarsesion_14">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>140</y>
-          <width>111</width>
+          <x>80</x>
+          <y>200</y>
+          <width>121</width>
           <height>31</height>
          </rect>
         </property>
@@ -2208,14 +5389,14 @@ QPushButton:pressed
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Fecha de Entrada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Fecha de Entrada&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="lb_HoraEntrada">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>110</y>
+          <x>230</x>
+          <y>160</y>
           <width>71</width>
           <height>31</height>
          </rect>
@@ -2226,14 +5407,14 @@ QPushButton:pressed
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#000000;&quot;&gt;7:00 PM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;7:00 PM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="lb_TiempoenHoras">
         <property name="geometry">
          <rect>
-          <x>150</x>
-          <y>170</y>
+          <x>230</x>
+          <y>240</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -2241,7 +5422,7 @@ QPushButton:pressed
         <property name="font">
          <font>
           <family>Nirmala UI</family>
-          <pointsize>10</pointsize>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2251,30 +5432,9 @@ QPushButton:pressed
        <widget class="QLabel" name="label_cerrarsesion_15">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>170</y>
-          <width>51</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Nirmala UI</family>
-          <pointsize>9</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Tiempo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="lb_ValordelaHora">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>200</y>
-          <width>71</width>
+          <x>140</x>
+          <y>240</y>
+          <width>61</width>
           <height>31</height>
          </rect>
         </property>
@@ -2282,6 +5442,27 @@ QPushButton:pressed
          <font>
           <family>Nirmala UI</family>
           <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Tiempo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lb_ValordelaHora">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>280</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Nirmala UI</family>
+          <pointsize>11</pointsize>
          </font>
         </property>
         <property name="text">
@@ -2291,31 +5472,31 @@ QPushButton:pressed
        <widget class="QLabel" name="label_cerrarsesion_16">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>200</y>
-          <width>91</width>
+          <x>100</x>
+          <y>280</y>
+          <width>111</width>
           <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Nirmala UI</family>
-          <pointsize>9</pointsize>
+          <pointsize>11</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Valor por Hora&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Valor por Hora&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="Line" name="line_2">
         <property name="geometry">
          <rect>
-          <x>-7</x>
+          <x>20</x>
           <y>10</y>
           <width>20</width>
-          <height>271</height>
+          <height>371</height>
          </rect>
         </property>
         <property name="orientation">
@@ -2325,10 +5506,10 @@ QPushButton:pressed
        <widget class="Line" name="line_3">
         <property name="geometry">
          <rect>
-          <x>250</x>
+          <x>380</x>
           <y>10</y>
           <width>20</width>
-          <height>271</height>
+          <height>371</height>
          </rect>
         </property>
         <property name="orientation">
@@ -2338,10 +5519,10 @@ QPushButton:pressed
        <widget class="Line" name="line_4">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>30</x>
           <y>0</y>
-          <width>261</width>
-          <height>16</height>
+          <width>361</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="orientation">
@@ -2351,10 +5532,10 @@ QPushButton:pressed
        <widget class="Line" name="line_5">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>30</x>
           <y>40</y>
-          <width>261</width>
-          <height>16</height>
+          <width>361</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="orientation">
@@ -2364,10 +5545,10 @@ QPushButton:pressed
        <widget class="Line" name="line_6">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>100</y>
-          <width>261</width>
-          <height>16</height>
+          <x>30</x>
+          <y>130</y>
+          <width>361</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="orientation">
@@ -2377,15 +5558,15 @@ QPushButton:pressed
        <widget class="QPushButton" name="bt_aceptarinfhg">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>240</y>
-          <width>81</width>
-          <height>21</height>
+          <x>170</x>
+          <y>330</y>
+          <width>101</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>11</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -2397,10 +5578,10 @@ QPushButton:pressed
        <widget class="Line" name="line_7">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>270</y>
-          <width>261</width>
-          <height>16</height>
+          <x>30</x>
+          <y>370</y>
+          <width>361</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="orientation">
@@ -2409,11 +5590,106 @@ QPushButton:pressed
        </widget>
       </widget>
      </widget>
+     <widget class="QPushButton" name="bt_eliminarH">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>390</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Nirmala UI</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+      </property>
+      <property name="text">
+       <string>Eliminar </string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="bt_gagregarH">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>390</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Nirmala UI</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover
+{
+	border-style: solid;
+   	background-color:#bbdefb;
+
+}
+
+QPushButton:pressed
+{
+	background-color:#0069c0;
+}</string>
+      </property>
+      <property name="text">
+       <string>Agregar</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
     <widget class="QPushButton" name="bt_buscarHangar">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>480</x>
        <y>20</y>
        <width>91</width>
        <height>31</height>
@@ -2422,7 +5698,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -2463,7 +5739,7 @@ QPushButton:pressed
     <widget class="QLabel" name="label_cerrarsesion_7">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>190</x>
        <y>20</y>
        <width>141</width>
        <height>31</height>
@@ -2472,7 +5748,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>9</pointsize>
+       <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -2484,7 +5760,7 @@ QPushButton:pressed
     <widget class="QComboBox" name="cb_codHangar">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>340</x>
        <y>20</y>
        <width>131</width>
        <height>31</height>
@@ -2494,8 +5770,8 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_detallesHangar">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>400</y>
+       <x>90</x>
+       <y>520</y>
        <width>111</width>
        <height>41</height>
       </rect>
@@ -2503,7 +5779,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -2541,61 +5817,11 @@ QPushButton:pressed
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="bt_editaInforHangar">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>400</y>
-       <width>121</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton:hover
-{
-	border-style: solid;
-   	background-color:#bbdefb;
-
-}
-
-QPushButton:pressed
-{
-	background-color:#0069c0;
-}</string>
-     </property>
-     <property name="text">
-      <string>Editar Inf</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../Ventanas/Icons/editar.png</normaloff>../Ventanas/Icons/editar.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>40</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="bt_ocuparHangar">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>400</y>
+       <x>230</x>
+       <y>520</y>
        <width>121</width>
        <height>41</height>
       </rect>
@@ -2603,7 +5829,7 @@ QPushButton:pressed
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -2629,7 +5855,7 @@ QPushButton:pressed
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../Ventanas/Icons/Ocupar.png</normaloff>../Ventanas/Icons/Ocupar.png</iconset>
+       <normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/hangar.png</normaloff>../../../../../Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/hangar.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -2644,16 +5870,16 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_refreshHangar">
      <property name="geometry">
       <rect>
-       <x>420</x>
-       <y>20</y>
-       <width>111</width>
-       <height>31</height>
+       <x>590</x>
+       <y>520</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -2694,16 +5920,16 @@ QPushButton:pressed
     <widget class="QPushButton" name="bt_generarReporte">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>400</y>
-       <width>161</width>
+       <x>380</x>
+       <y>520</y>
+       <width>171</width>
        <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Nirmala UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
