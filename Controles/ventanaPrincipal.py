@@ -2,11 +2,19 @@ from PySide2.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHea
 from PySide2.QtCore import Qt
 from Ventanas.main_window import mainWindow
 from Database.aeropuerto import seleccionar_todas_aerolineas, registrar_aerolinea, aerolinea_correo, aerolinea_tel, eliminar_aerolinea, seleccionar_todos_vuelos
-from Database.hangares_db import traer_todos_hangares
+from Database.hangares_db import traer_todos_hangares, crear_hangar, borrar_hangar, datos_factura
+from Database.usuariosDB import traer_todoslos_usuarios
+from Database.avion import comprobar_id
 from .aerolineas import Aerolinea
 from .vuelos import Vuelos
 from .hangares import Hangares
 from .facturacion import Factura
+from .usuarios import Usuarios
+import datetime
+from datetime import datetime
+from datetime import date
+from .editarusuario import Editar_usuarios
+import time
 
 
 class Principal (QWidget, mainWindow):
@@ -55,6 +63,12 @@ class Principal (QWidget, mainWindow):
 
         #Boton generar factura
         self.bt_generarReporte.clicked.connect(self.generar_salida)
+
+        #Boton Crear Usuario
+        self.bt_addUsuario.clicked.connect(self.reg_usuario)
+
+        #Boton editar usuario
+        self.bt_editarUsuario.clicked.connect(self.modificar_usuario)
         
 # ///////////////////////////// AEROLINEA //////////////////////////////////////////////////////
 
@@ -245,4 +259,72 @@ class Principal (QWidget, mainWindow):
         self.cargar_tabla_general(data)
 
 # //////////////////////////////// ELIMINAR VUELOS /////////////////////////////////////////////////
-    
+
+# ///////////////////////////// USUARIOS //////////////////////////////////////////////////////
+    def cargar_tabla_usuarios (self, data):
+        self.tb_vistaGeneral_2.setRowCount(len(data))
+
+        for(index_fila, fila) in enumerate(data):
+            #indice, datos
+            for (index_celda, celda) in enumerate(fila):
+                self.tb_vistaGeneral_2.setItem(index_fila, index_celda, 
+                QTableWidgetItem(str(celda)))
+# --------------------------------------------------------------------------------------
+    def actualizar_tb_usuarios(self):
+        data = traer_todoslos_usuarios()
+        self.cargar_tabla_usuarios(data) 
+# ---------------------------------------------------------------------------------              
+    def reg_usuario (self):
+        window = Usuarios(self)
+        window.show()
+# --------------------------------------------------------------------------------
+    def eliminar_usuario (self):
+        usuario_seleccionado = self.tb_vistaGeneral_2.selectedItems()
+
+        if usuario_seleccionado:
+            id_usuario = usuario_seleccionado[0].text()
+            print (id_usuario)
+            usuario = usuario_seleccionado[0].row()
+
+            # Mensaje de confirmación de si quiere borrar el usuario
+            dlg = QMessageBox.question(self, "Eliminar Usuario", 
+                        "¿Esta seguro que quiere eliminar el usuario?", 
+                        QMessageBox.Ok, QMessageBox.Cancel)
+
+            #Si presiona Ok 
+            if dlg == QMessageBox.Ok:
+                if Usuarios.borrar_datos_usuario(self, id_usuario):
+                    self.tb_vistaGeneral_2.removeRow(usuario)
+                    QMessageBox.information(self, "Eliminado", "Usuario eliminado con éxito", QMessageBox.Ok)
+
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para eliminar un usuario, primero tiene que seleccionar uno de ellos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+# --------------------------------------------------------------------------------------
+    #**
+    def modificar_usuario(self):
+        usuario_seleccionado = self.tb_vistaGeneral_2.selectedItems()
+
+        if usuario_seleccionado:
+            id_usuario = usuario_seleccionado[0].text()
+            print (id_usuario)
+            usuario = usuario_seleccionado[0].row()
+
+            window = Editar_usuarios(self,str(id_usuario))
+            window.show()
+                      
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para editar un usuario, primero tiene que seleccionar uno de ellos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+    #**
+#--------------------------------------------------------------------------------    
