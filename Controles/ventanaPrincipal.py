@@ -14,6 +14,7 @@ import datetime
 from datetime import datetime
 from datetime import date
 from .editarusuario import Editar_usuarios
+from .editaravion import Editar_Avion
 import time
 
 
@@ -29,6 +30,13 @@ class Principal (QWidget, mainWindow):
         self.cargar_tabla_aerolineas(seleccionar_todas_aerolineas())
         self.cargar_tabla_hangares(traer_todos_hangares())
         self.cargar_tabla_general(seleccionar_todos_vuelos())
+
+        self.cargar_tabla_usuarios(traer_todoslos_usuarios ())
+        self.cargar_tabla_aviones(traer_aviones())
+
+        self.cb_pasajerosEA.setDisabled(True)
+        self.cb_PropulsionEA.setDisabled(True)
+        self.cb_ModeloRA.setDisabled(True)
         
         # Conectar con las multipáginas los botones del inicio
         self.bt_user.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_bienvenido))
@@ -63,6 +71,21 @@ class Principal (QWidget, mainWindow):
 
         #Boton generar factura
         self.bt_generarReporte.clicked.connect(self.generar_salida)
+
+        #Boton verificar id avion
+        self.bt_checkIDavion.clicked.connect(self.habilitar_campos_regvuelo)
+
+        #Boton guardar avion
+        self.bt_aceptarAVEA.clicked.connect(self.registro_avion)
+
+        #Boton actualizar tabla aviones
+        self.bt_actualizar_avion.clicked.connect(self.actualizar_tb_aviones)
+
+        #Boton eliminar avion
+        self.bt_eliminar_avion.clicked.connect(self.eliminar_avion)
+
+        #Boton editar avion
+        self.bt_modificar_avion.clicked.connect(self.modificar_avion)
 
         #Boton Crear Usuario
         self.bt_addUsuario.clicked.connect(self.reg_usuario)
@@ -327,4 +350,118 @@ class Principal (QWidget, mainWindow):
             dlg.setIcon(QMessageBox.Critical)
             dlg.show()
     #**
-#--------------------------------------------------------------------------------    
+#--------------------------------------------------------------------------------
+# ///////////////////////////////// AVIONES ////////////////////////////////////////////////////////
+    def registro_avion (self):
+        cod_avion = self.lineEdit_identificadorEA.text()
+        tipo_avion = self.cb_pasajerosEA.currentText()
+        # propulsion = self.cb_PropulsionEA.currentText()
+        modelo = self.cb_ModeloRA.currentText()
+        capacidad = self.spinBox_CapacidadEA.value()
+        # motores = self.spinBox_MotoresEA.value()
+        # peso = self.spinBox_pesoNomEA.value()
+
+        #cod_avion, tipo_avion, capacidad, cod_modelo
+        avion = (cod_avion, tipo_avion, modelo, capacidad)
+        
+        i=0; b= True
+
+        while i < len(avion) and b == True:
+            if avion[i] != "":
+                i += 1
+                b = True
+
+            else:
+                dlg = QMessageBox(self)
+                dlg.setWindowTitle("Error")
+                dlg.setText("Para guardar la información del avión todos los\n"+
+                            "campos deben estar llenos.\n"+
+                            "Por favor revise e intente de nuevo")
+                dlg.setStandardButtons(QMessageBox.Ok)
+                dlg.setIcon(QMessageBox.Critical)
+                dlg.show()
+                b = False
+
+        if b == True:
+            characters = "(,')"
+            cod_modelo = str(buscar_cod_modelo(modelo))
+            for x in range(len(characters)):
+                cod_modelo = cod_modelo.replace(characters[x],"")
+
+            avion = (cod_avion, tipo_avion, capacidad, cod_modelo)
+            
+            if registrar_avion(avion):
+                self.bool = True
+                dlg = QMessageBox(self)
+                dlg.setWindowTitle("Registro Exitoso")
+                dlg.setText("Avión registrado con éxito.\n"+
+                            " Actualice la tabla para ver los cambios realizados")
+                dlg.setStandardButtons(QMessageBox.Ok)
+                dlg.setIcon(QMessageBox.Information)
+                dlg.show()
+
+# --------------------------------------------------------------------------------------
+    def actualizar_tb_aviones(self):
+            data = traer_aviones()
+            self.cargar_tabla_aviones(data)
+# --------------------------------------------------------------------------------------
+    def cargar_tabla_aviones (self, data):
+        self.tb_avionesregistradosAV.setRowCount(len(data))
+
+        for(index_fila, fila) in enumerate(data):
+            #indice, datos
+            for (index_celda, celda) in enumerate(fila):
+                self.tb_avionesregistradosAV.setItem(index_fila, index_celda, 
+                QTableWidgetItem(str(celda)))
+# --------------------------------------------------------------------------------------
+#**
+    def modificar_avion(self):
+        avion_seleccionado = self.tb_avionesregistradosAV.selectedItems()
+
+        if avion_seleccionado:
+            id_avion = avion_seleccionado[0].text()
+            print (id_avion)
+            avion = avion_seleccionado[0].row()
+
+            window = Editar_Avion(self,id_avion)
+            window.show()
+                    
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para editar un usuario, primero tiene que seleccionar uno de ellos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+    #**
+
+#--------------------------------------------------------------------------------
+    #**--
+    def eliminar_avion(self):
+        avion_seleccionado = self.tb_avionesregistradosAV.selectedItems()
+
+        if avion_seleccionado:
+            id_avion = avion_seleccionado[0].text()
+            print (id_avion)
+            avion = avion_seleccionado[0].row()
+
+            # Mensaje de confirmación de si quiere borrar el usuario
+            dlg = QMessageBox.question(self, "Eliminar Avion", 
+                        "¿Esta seguro que quiere eliminar el avion?", 
+                        QMessageBox.Ok, QMessageBox.Cancel)
+
+            #Si presiona Ok 
+            if dlg == QMessageBox.Ok:
+                if borrar_datos_avion(id_avion):
+                    self.tb_avionesregistradosAV.removeRow(avion)
+                    QMessageBox.information(self, "Eliminado", "Avion eliminado con éxito", QMessageBox.Ok)
+                    
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para eliminar un avion, primero tiene que seleccionar uno de ellos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()    
