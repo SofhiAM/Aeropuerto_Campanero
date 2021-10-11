@@ -15,32 +15,12 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../Ventanas/Icons/Paper-Plane-icon.png</normaloff>../Ventanas/Icons/Paper-Plane-icon.png</iconset>
+    <normaloff>D:/Sofia/Documents/AERO Campanero/Backend/Backend/Ventanas/Icons/Paper-Plane-icon.png</normaloff>D:/Sofia/Documents/AERO Campanero/Backend/Backend/Ventanas/Icons/Paper-Plane-icon.png</iconset>
   </property>
-  <widget class="QLineEdit" name="lineEdit_CodigoAvion">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>80</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Open Sans</family>
-     <pointsize>9</pointsize>
-     <weight>50</weight>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 9pt  &quot;Open Sans&quot;;
-</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineEdit_ModelodelAvion">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>470</x>
@@ -322,7 +302,7 @@ QPushButton:pressed
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../Ventanas/Icons/save-icon.png</normaloff>../Ventanas/Icons/save-icon.png</iconset>
+     <normaloff>D:/Sofia/Documents/AERO Campanero/Backend/Backend/Ventanas/Icons/save-icon.png</normaloff>D:/Sofia/Documents/AERO Campanero/Backend/Backend/Ventanas/Icons/save-icon.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -332,6 +312,23 @@ QPushButton:pressed
    </property>
    <property name="flat">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cb_cod_avion">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>80</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt  &quot;Open Sans&quot;;
+</string>
    </property>
   </widget>
  </widget>

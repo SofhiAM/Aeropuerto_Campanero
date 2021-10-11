@@ -11,8 +11,7 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-import datetime
-import time
+
 
 class ocuparHangar(object):
     def setupUi(self, OcuparHangar):
@@ -20,22 +19,11 @@ class ocuparHangar(object):
             OcuparHangar.setObjectName(u"OcuparHangar")
         OcuparHangar.resize(643, 305)
         icon = QIcon()
-        icon.addFile(u"C:/Users/Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/Paper-Plane-icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"D:/Sofia/Documents/AERO Campanero/Backend/Backend/Ventanas/Icons/Paper-Plane-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         OcuparHangar.setWindowIcon(icon)
-        self.lineEdit_CodigoAvion = QLineEdit(OcuparHangar)
-        self.lineEdit_CodigoAvion.setObjectName(u"lineEdit_CodigoAvion")
-        self.lineEdit_CodigoAvion.setGeometry(QRect(140, 80, 151, 31))
-        font = QFont()
-        font.setFamily(u"Open Sans")
-        font.setPointSize(9)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.lineEdit_CodigoAvion.setFont(font)
-        self.lineEdit_CodigoAvion.setStyleSheet(u"font: 9pt  \"Open Sans\";\n"
-"")
         self.lineEdit_ModelodelAvion = QLineEdit(OcuparHangar)
         self.lineEdit_ModelodelAvion.setObjectName(u"lineEdit_ModelodelAvion")
+        self.lineEdit_ModelodelAvion.setEnabled(False)
         self.lineEdit_ModelodelAvion.setGeometry(QRect(470, 80, 151, 31))
         self.lineEdit_ModelodelAvion.setStyleSheet(u"font: 9pt  \"Open Sans\";\n"
 "")
@@ -43,15 +31,12 @@ class ocuparHangar(object):
         self.dateEdit_Fechaentrada.setObjectName(u"dateEdit_Fechaentrada")
         self.dateEdit_Fechaentrada.setGeometry(QRect(170, 130, 121, 31))
         self.dateEdit_Fechaentrada.setCursor(QCursor(Qt.IBeamCursor))
-        ahora = datetime.datetime.now()
-        self.dateEdit_Fechaentrada.setDateTime(QDateTime(ahora)) 
         self.dateEdit_Fechaentrada.setStyleSheet(u"font: 9pt  \"Open Sans\";\n"
 "")
         self.timeEdit_Horaentrada = QTimeEdit(OcuparHangar)
         self.timeEdit_Horaentrada.setObjectName(u"timeEdit_Horaentrada")
         self.timeEdit_Horaentrada.setGeometry(QRect(470, 130, 151, 31))
         self.timeEdit_Horaentrada.setCursor(QCursor(Qt.IBeamCursor))
-        self.timeEdit_Horaentrada.setDateTime(QDateTime(ahora)) 
         self.timeEdit_Horaentrada.setStyleSheet(u"font: 9pt  \"Open Sans\";\n"
 "")
         self.cb_Valorporhora = QComboBox(OcuparHangar)
@@ -77,41 +62,41 @@ class ocuparHangar(object):
         self.label_cerrarsesion_7 = QLabel(OcuparHangar)
         self.label_cerrarsesion_7.setObjectName(u"label_cerrarsesion_7")
         self.label_cerrarsesion_7.setGeometry(QRect(20, 80, 121, 31))
-        font1 = QFont()
-        font1.setFamily(u"Nirmala UI")
-        font1.setPointSize(9)
-        font1.setBold(True)
-        font1.setWeight(75)
-        self.label_cerrarsesion_7.setFont(font1)
+        font = QFont()
+        font.setFamily(u"Nirmala UI")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_cerrarsesion_7.setFont(font)
         self.label_cerrarsesion_8 = QLabel(OcuparHangar)
         self.label_cerrarsesion_8.setObjectName(u"label_cerrarsesion_8")
         self.label_cerrarsesion_8.setGeometry(QRect(330, 80, 121, 31))
-        self.label_cerrarsesion_8.setFont(font1)
+        self.label_cerrarsesion_8.setFont(font)
         self.label_cerrarsesion_9 = QLabel(OcuparHangar)
         self.label_cerrarsesion_9.setObjectName(u"label_cerrarsesion_9")
         self.label_cerrarsesion_9.setGeometry(QRect(30, 130, 121, 31))
-        self.label_cerrarsesion_9.setFont(font1)
+        self.label_cerrarsesion_9.setFont(font)
         self.label_cerrarsesion_10 = QLabel(OcuparHangar)
         self.label_cerrarsesion_10.setObjectName(u"label_cerrarsesion_10")
         self.label_cerrarsesion_10.setGeometry(QRect(330, 130, 121, 31))
-        self.label_cerrarsesion_10.setFont(font1)
+        self.label_cerrarsesion_10.setFont(font)
         self.label_cerrarsesion_11 = QLabel(OcuparHangar)
         self.label_cerrarsesion_11.setObjectName(u"label_cerrarsesion_11")
         self.label_cerrarsesion_11.setGeometry(QRect(30, 180, 121, 31))
-        self.label_cerrarsesion_11.setFont(font1)
+        self.label_cerrarsesion_11.setFont(font)
         self.label_cerrarsesion_12 = QLabel(OcuparHangar)
         self.label_cerrarsesion_12.setObjectName(u"label_cerrarsesion_12")
         self.label_cerrarsesion_12.setGeometry(QRect(320, 180, 101, 31))
-        self.label_cerrarsesion_12.setFont(font1)
+        self.label_cerrarsesion_12.setFont(font)
         self.bt_ocuparHangar = QPushButton(OcuparHangar)
         self.bt_ocuparHangar.setObjectName(u"bt_ocuparHangar")
         self.bt_ocuparHangar.setGeometry(QRect(260, 240, 131, 41))
-        font2 = QFont()
-        font2.setFamily(u"Nirmala UI")
-        font2.setPointSize(12)
-        font2.setBold(True)
-        font2.setWeight(75)
-        self.bt_ocuparHangar.setFont(font2)
+        font1 = QFont()
+        font1.setFamily(u"Nirmala UI")
+        font1.setPointSize(12)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.bt_ocuparHangar.setFont(font1)
         self.bt_ocuparHangar.setCursor(QCursor(Qt.PointingHandCursor))
         self.bt_ocuparHangar.setStyleSheet(u"QPushButton:hover\n"
 "{\n"
@@ -125,10 +110,16 @@ class ocuparHangar(object):
 "	background-color:#0069c0;\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u"C:/Users/Sofia/OneDrive/Proyecto-El Campanero/Backend/Ventanas/Icons/save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"D:/Sofia/Documents/AERO Campanero/Backend/Backend/Ventanas/Icons/save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.bt_ocuparHangar.setIcon(icon1)
         self.bt_ocuparHangar.setIconSize(QSize(30, 50))
         self.bt_ocuparHangar.setFlat(False)
+        self.cb_cod_avion = QComboBox(OcuparHangar)
+        self.cb_cod_avion.setObjectName(u"cb_cod_avion")
+        self.cb_cod_avion.setGeometry(QRect(150, 80, 141, 31))
+        self.cb_cod_avion.setCursor(QCursor(Qt.PointingHandCursor))
+        self.cb_cod_avion.setStyleSheet(u"font: 9pt  \"Open Sans\";\n"
+"")
 
         self.retranslateUi(OcuparHangar)
 
@@ -137,9 +128,9 @@ class ocuparHangar(object):
 
     def retranslateUi(self, OcuparHangar):
         OcuparHangar.setWindowTitle(QCoreApplication.translate("OcuparHangar", u"Ocupar Hangar", None))
-        self.cb_Valorporhora.setItemText(0, QCoreApplication.translate("OcuparHangar", u"300000", None))
-        self.cb_Valorporhora.setItemText(1, QCoreApplication.translate("OcuparHangar", u"500000", None))
-        self.cb_Valorporhora.setItemText(2, QCoreApplication.translate("OcuparHangar", u"250000", None))
+        self.cb_Valorporhora.setItemText(0, QCoreApplication.translate("OcuparHangar", u"30.000", None))
+        self.cb_Valorporhora.setItemText(1, QCoreApplication.translate("OcuparHangar", u"50.000", None))
+        self.cb_Valorporhora.setItemText(2, QCoreApplication.translate("OcuparHangar", u"25.000", None))
 
         self.cb_Aerolinea.setItemText(0, "")
 
