@@ -84,6 +84,7 @@ class Vuelos (QWidget,CrearVuelo):
             #Combo destino 
             self.cb_Destino.addItems(ciudades)
 
+# ------------------------------------------------------------------------------------
     def verificacion_campos_general (self):
         tipo_vuelo = self.cb_tipovuelo.currentText()
         cod_vuelo = self.textedit_codigovuelo.text()

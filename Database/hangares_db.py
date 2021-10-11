@@ -191,3 +191,46 @@ def cambiar_estado_alibre (_cod_hangar):
         if con:
             cursor.close()
             con.close()
+            
+# -----------------------------------------------------------------------------------------------
+def crear_hangar (datos):
+    
+    con = conexion_db()
+    sql = """ INSERT INTO hangar (cod_hangar, capacidad_hg, estado_hg) values (%s,%s,%s)"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql, datos)
+        con.commit()
+        print("Nuevo hangar creado")
+        return True
+
+    except Error as e:
+        print ("Error al crear hangar "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# -----------------------------------------------------------------------------------------------
+def borrar_hangar(_cod_hangar):
+
+    con = conexion_db()
+    sql = f"DELETE FROM hangar WHERE cod_hangar= '{_cod_hangar}'" 
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        print("Hangar eliminado")
+        return True
+
+    except Error as e:
+        print ("Error al eliminar hangar "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+# -----------------------------------------------------------------------------------------------
