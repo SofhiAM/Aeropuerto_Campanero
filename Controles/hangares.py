@@ -16,9 +16,14 @@ class Hangares (QWidget,ocuparHangar):
         self.cod_hangar= cod_hangar
         self.cargar_aerolineas()
 
+        self.cod_hangar= cod_hangar
+        self.cargar_aerolineas()
+
         #Boton ocupar hangar
         self.bt_ocuparHangar.clicked.connect(self.ocupar_hangar)
-
+        self.cargar_aviones_en_combo()
+        self.cargar_modelo_avion()
+        self.evento_modelo()
         
 # ----------------------------------------------------------------------------------
     def cargar_aerolineas (self):
@@ -35,8 +40,7 @@ class Hangares (QWidget,ocuparHangar):
         # Aquí se manda ese string ya listo al combo box    
             self.cb_Aerolinea.addItem(str(string))
             i += 1
-# -----------------------------------------------------------------------------------
-        
+# ----------------------------------------------------------------------------------- 
     def ocupar_hangar(self):
         #print(cod_hangar)
         codigoAvion = self.lineEdit_CodigoAvion.text()
@@ -102,6 +106,40 @@ class Hangares (QWidget,ocuparHangar):
             cambiar_estado_alibre(cod_hangar)
 
 # --------------------------------------------------------------------------------------
+    def generarReporte_hangar(self):
+        c = canvas.Canvas("ReporteCostodeHangar.pdf")    
+        c.setLineWidth(.3)                              
+        c.setFont('Arial', 14)                              
+        c.drawString(120, 760, "Reporte Costo de Hangar")   
+
+
+#----------------------------------------------------------------------------------
+    def cargar_aviones_en_combo (self):
+        aviones = comprobar_id()
+
+        #Aquí se convierte los valores de la tupla a str y sin esos caracteres
+        characters = "(,')"
+        i=0 
+        while i < len(aviones):
+            string = str(aviones [i])
+            for x in range(len(characters)):
+                string = string.replace(characters[x],"")
         
+        # Aquí se manda ese string ya listo al combo box    
+            self.cb_cod_avion.addItem(str(string))
+            i += 1
+#----------------------------------------------------------------------------------    
+    def cargar_modelo_avion (self):
+        id_avion = self.cb_cod_avion.currentText()
+        model= buscar_modelo(id_avion)
+        modelo = str(model)
+        characters = "(,')"
+        for x in range(len(characters)):
+            modelo = modelo.replace(characters[x],"")
+
+        self.lineEdit_ModelodelAvion.setText(modelo)
+#----------------------------------------------------------------------------------
+    def evento_modelo (self):
+        self.cb_cod_avion.activated.connect(self.cargar_modelo_avion)
 
 
