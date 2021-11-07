@@ -6,7 +6,34 @@ Pasado a Main el de controles inicio
 ================== YO =================
 - Boton cerrar sesion :V
 - Botones de la main en cuanto a vuelos
-- Actualización de crear_vuelo general
+- Actualización de vuelos general
 --------------------------------------
-================ DIEGO =================
-- crear_vuelo actualización de la interfaz (avion)
+================ DIEGO ================= 001 OK
+- crear_vuelo - poner actualización de la interfaz (avion) (carpeta interfaces)
+- crear_vuelo codigo python (carpeta ventanas)
+
+================ JOHNY ================= 001 OK
+- vuelos actualizacion tripulacion (carpeta controles)
+
+================ HERNAN ================ Base de datos
+begin;
+insert into piloto (id_piloto, nom_piloto, ape_piloto, id_licencia, horas_vuelo, fecha_revmed, cod_tripulacion)
+values (2535, 'Karen', 'Gomez', 'LIC835', 433, '2021-08-22', 'TRIP004');
+insert into piloto (id_piloto, nom_piloto, ape_piloto, id_licencia, horas_vuelo, fecha_revmed, cod_tripulacion)
+values (2211, 'Daniel', 'Guerra', 'LIC844', 212, '2021-05-12', 'TRIP005');
+insert into piloto (id_piloto, nom_piloto, ape_piloto, id_licencia, horas_vuelo, fecha_revmed, cod_tripulacion)
+values (6422, 'Luis', 'Cervantes', 'LIC445', 133, '2021-10-22', 'TRIP006');
+insert into piloto (id_piloto, nom_piloto, ape_piloto, id_licencia, horas_vuelo, fecha_revmed, cod_tripulacion)
+values (2351, 'Estefania', 'Espinosa', 'LIC335', 125, '2021-03-17', 'TRIP007');
+rollback
+commit
+
+========== commit 001 =============
+Subir actualizacion de Database
+avion_db y aeropuerto
+-------------------------------------------------------------------------------------------------
+cuando se agreguen los vuelos a la agenda que se decida la hora 
+-------------------------------------------------------------------------------------------------
+-- Estado : A = aceptado
+	    D = Denegado
+	    E = Espera
