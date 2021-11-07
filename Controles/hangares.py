@@ -1,9 +1,12 @@
 from Ventanas.ocupar_hangar import ocuparHangar
 from Database.hangares_db import *
 from Database.aeropuerto import *
+from Database.avion_db import *
 from PySide2.QtWidgets import QWidget, QMessageBox
 from PySide2.QtCore import Qt
 
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
 
 class Hangares (QWidget,ocuparHangar):
 
@@ -13,6 +16,7 @@ class Hangares (QWidget,ocuparHangar):
         self.padre_ventana = parent
         self.setupUi(self)
         self.setWindowFlag (Qt.Window)
+
         self.cod_hangar= cod_hangar
         self.cargar_aerolineas()
 
@@ -42,7 +46,7 @@ class Hangares (QWidget,ocuparHangar):
             i += 1
 # ----------------------------------------------------------------------------------- 
     def ocupar_hangar(self):
-        #print(cod_hangar)
+        
         codigoAvion = self.lineEdit_CodigoAvion.text()
         modeloAvion = self.lineEdit_ModelodelAvion.text()
         fechaentrada = self.dateEdit_Fechaentrada.date().toPython()
@@ -72,7 +76,7 @@ class Hangares (QWidget,ocuparHangar):
                 b = False
 
         if b == True: 
-            #Aqui va todo lo de la base de datos
+            
             alquiler = (self.cod_hangar, codigoAvion, fechaentrada, 
                     horaentrada, valorhora, aerolinea)
             
@@ -140,6 +144,10 @@ class Hangares (QWidget,ocuparHangar):
         self.lineEdit_ModelodelAvion.setText(modelo)
 #----------------------------------------------------------------------------------
     def evento_modelo (self):
+<<<<<<< HEAD
         self.cb_cod_avion.activated.connect(self.cargar_modelo_avion)
+=======
+        self.cb_cod_avion.activated.connect(self.cargar_modelo_avion)       
+>>>>>>> 125f971278c9bac2f2088f4d75227e3fab376100
 
 
