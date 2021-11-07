@@ -4,7 +4,7 @@ from Ventanas.main_window import mainWindow
 from Database.aeropuerto import seleccionar_todas_aerolineas, registrar_aerolinea, aerolinea_correo, aerolinea_tel, eliminar_aerolinea, seleccionar_todos_vuelos
 from Database.hangares_db import traer_todos_hangares, crear_hangar, borrar_hangar, datos_factura
 from Database.usuariosDB import traer_todoslos_usuarios
-from Database.avion import comprobar_id
+from Database.avion_db import *
 from .aerolineas import Aerolinea
 from .vuelos import Vuelos
 from .hangares import Hangares
@@ -30,14 +30,14 @@ class Principal (QWidget, mainWindow):
         self.cargar_tabla_aerolineas(seleccionar_todas_aerolineas())
         self.cargar_tabla_hangares(traer_todos_hangares())
         self.cargar_tabla_general(seleccionar_todos_vuelos())
-
+        #**
         self.cargar_tabla_usuarios(traer_todoslos_usuarios ())
         self.cargar_tabla_aviones(traer_aviones())
-
+        #**
         self.cb_pasajerosEA.setDisabled(True)
         self.cb_PropulsionEA.setDisabled(True)
         self.cb_ModeloRA.setDisabled(True)
-        
+                
         # Conectar con las multipáginas los botones del inicio
         self.bt_user.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_bienvenido))
         self.bt_Aerolineas.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_aerolinea))
@@ -45,6 +45,9 @@ class Principal (QWidget, mainWindow):
         #&&
         self.bt_agendaMain.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_agenda))
         
+        # Conectar con la multipágina de inicio de sesion
+        self.bt_CerrarSesion.clicked.connect(lambda: self.pag_Main.setCurrentWidget(self.Login))
+
         #Conectar con las multipáginas de los botones de hangar
         self.bt_agregarH.clicked.connect(lambda: self.sw_funcion_hangares.setCurrentWidget(self.pg_registrar_hg))
         self.bt_detallesHangar.clicked.connect(lambda: self.sw_funcion_hangares.setCurrentWidget(self.pg_info_hg))
@@ -55,13 +58,25 @@ class Principal (QWidget, mainWindow):
         #$$
         #Conectar con las multipáginas los botones de vuelos
         self.bt_aviones.clicked.connect(lambda: self.sw_vuelos_av_trip.setCurrentWidget(self.pg_aviones))
-        self.bt_agregar_avion.clicked.connect(lambda: self.sw_reg_ver_avion.setCurrentWidget(self.pg_reg_avion))
+        self.bt_agregarAvion.clicked.connect(lambda: self.sw_reg_ver_avion.setCurrentWidget(self.pg_reg_avion))
         self.bt_cancelar_RA.clicked.connect(lambda: self.sw_reg_ver_avion.setCurrentWidget(self.pg_vista_aviones))
         #$$
+
+        #Conectar Nueva Tripulacion con el boton
+        self.bt_nuevaTrip.clicked.connect(lambda: self.sw_vuelos_av_trip.setCurrentWidget(self.pg_newTrip))
+
+        #Conectar Agenda Pendiente con el boton
+        self.bt_agendaPendiente.clicked.connect(lambda: self.sw_vuelos_av_trip.setCurrentWidget(self.pg_agendaPendiente))
+
+        #Conectar Agenda con el boton
+        self.bt_vuelosAerolinea.clicked.connect(lambda: self.sw_vuelos_av_trip.setCurrentWidget(self.pg_agendaAerolinea))
 
         #Cambiar a agenda
         self.bt_Vuelos.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_vuelos))
         self.bt_Hangares.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_hangares))
+
+        #Boton agregar (vuelos aerolinea)
+        self.bt_agregarVA.clicked.connect(self.crear_vuelo)
         
         #Boton agregar aerolínea
         self.bt_addAerolinea.clicked.connect(self.reg_aerolinea)
@@ -75,20 +90,12 @@ class Principal (QWidget, mainWindow):
         #Boton Ocupar Hangar
         self.bt_ocuparHangar.clicked.connect(self.ocupar_hangar)
 
-        #&&
-        #Boton Generar Reporte en PDF
-        self.bt_generarReporte.clicked.connect(self.generarReporte_hangar)
-        #&&
-
         #Boton Actualizar tabla hangares
         self.bt_refreshHangar.clicked.connect(self.actualizar_tb_hangares)
- 
+
         #Crear vuelo
-        self.bt_editarAgenda.clicked.connect(self.crear_vuelo)
-        
-        #Cerrar sesion = Cerrar la ventana principal
-        self.bt_CerrarSesion.clicked.connect(self.cerrar_sesion)
-        
+        #self.bt_editarAgenda.clicked.connect(self.crear_vuelo)
+                
         #Boton Actualizar tabla vuelos
         self.bt_refreshAgenda.clicked.connect(self.actualizar_tb_vuelos)
 
@@ -123,7 +130,7 @@ class Principal (QWidget, mainWindow):
         #Boton editar usuario
         self.bt_editarUsuario.clicked.connect(self.modificar_usuario)
 
-
+        #**--
         #Boton guardar avion
         self.bt_aceptarAVEA.clicked.connect(self.registro_avion)
 
@@ -131,10 +138,10 @@ class Principal (QWidget, mainWindow):
         self.bt_actualizar_avion.clicked.connect(self.actualizar_tb_aviones)
 
         #Boton eliminar avion
-        self.bt_eliminar_avion.clicked.connect(self.eliminar_avion)
+        self.bt_eliminarAvion.clicked.connect(self.eliminar_avion)
 
         #Boton editar avion
-        self.bt_modificar_avion.clicked.connect(self.modificar_avion)        
+        self.bt_modificarAvion.clicked.connect(self.modificar_avion)
 # ///////////////////////////// AEROLINEA //////////////////////////////////////////////////////
 
     def reg_aerolinea (self):
@@ -186,12 +193,12 @@ class Principal (QWidget, mainWindow):
         else:
             dlg = QMessageBox(self)
             dlg.setWindowTitle("Error")
-            dlg.setText("Para eliminar una aerolínea, primero tiene que seleccionar de ellas.\n"+
+            dlg.setText("Para eliminar una aerolínea, primero tiene que seleccionar una de ellas.\n"+
                         "Por favor revise e intente de nuevo")
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Critical)
             dlg.show()
-            
+
 #--------------------------------------------------------------------------------
     def actualizar_tb_aerolinea(self):
         data = seleccionar_todas_aerolineas()
@@ -205,7 +212,7 @@ class Principal (QWidget, mainWindow):
         self.close()
 
 #///////////////////////////// HANGAR //////////////////////////////////////////////////////
-    
+
     def ocupar_hangar (self):
         
         hangar_seleccionado = self.tb_hangares.selectedItems()
@@ -267,10 +274,8 @@ class Principal (QWidget, mainWindow):
         data = traer_todos_hangares()
         self.cargar_tabla_hangares(data)
 #--------------------------------------------------------------------------------
-    def generarReporte_hangar(self):
-        Hangares.generarReporte_hangar(self)
 
-#--------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
     def generar_salida(self):
         hangar_seleccionado = self.tb_hangares.selectedItems()
 
@@ -470,12 +475,12 @@ class Principal (QWidget, mainWindow):
 
 # //////////////////////////////// ELIMINAR VUELOS /////////////////////////////////////////////////
 
-# ///////////////////////////// USUARIOS //////////////////////////////////////////////////////
+# ///////////////////////////// USUARIOS //////////////////////////////////////////////////////             
     def reg_usuario (self):
         window = Usuarios(self)
         window.show()
-
-# --------------------------------------------------------------------------------------        
+        
+# ---------------------------------------------------------------------------------            
     def cargar_tabla_usuarios (self, data):
         self.tb_vistaGeneral_2.setRowCount(len(data))
 
@@ -507,7 +512,7 @@ class Principal (QWidget, mainWindow):
             if dlg == QMessageBox.Ok:
                 if Usuarios.borrar_datos_usuario(self, id_usuario):
                     self.tb_vistaGeneral_2.removeRow(usuario)
-                    QMessageBox.information(self, "Eliminado", "Usuario eliminado con éxito", QMessageBox.Ok)
+                    QMessageBox.information(self, "Eliminado", "Usuario eliminado con éxito.", QMessageBox.Ok)
 
         else:
             dlg = QMessageBox(self)
@@ -529,7 +534,7 @@ class Principal (QWidget, mainWindow):
 
             window = Editar_usuarios(self,str(id_usuario))
             window.show()
-                      
+                    
         else:
             dlg = QMessageBox(self)
             dlg.setWindowTitle("Error")
@@ -618,7 +623,7 @@ class Principal (QWidget, mainWindow):
         else:
             dlg = QMessageBox(self)
             dlg.setWindowTitle("Error")
-            dlg.setText("Para editar un usuario, primero tiene que seleccionar uno de ellos.\n"+
+            dlg.setText("Para editar un avión, primero tiene que seleccionar uno de ellos.\n"+
                         "Por favor revise e intente de nuevo")
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Critical)
@@ -654,7 +659,7 @@ class Principal (QWidget, mainWindow):
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Critical)
             dlg.show()
-#**--
+    #**--
 #--------------------------------------------------------------------------------
     def local_comprobar_id (self, id_avion):
         b = True
@@ -746,5 +751,5 @@ class Principal (QWidget, mainWindow):
             datos.append(string)
 
         return datos
-        # Aquí se manda ese string ya listo al combo box
-    
+        # Aquí se manda ese string ya listo al combo box    
+            

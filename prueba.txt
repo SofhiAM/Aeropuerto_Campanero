@@ -1,0 +1,12 @@
+- Editar aerolinea
+- Nueva tripulacion
+-------------------------------------
+Pasado a Main el de controles inicio
+--------------------------------------
+================== YO =================
+- Boton cerrar sesion :V
+- Botones de la main en cuanto a vuelos
+- Actualización de crear_vuelo general
+--------------------------------------
+================ DIEGO =================
+- crear_vuelo actualización de la interfaz (avion)
