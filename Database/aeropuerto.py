@@ -156,8 +156,8 @@ def crear_vuelo(data):
     con = conexion_db()
 
     sql = """INSERT INTO vuelo 
-            (id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, fecha_vuelo, hora_vuelo, nit_aerolinea, id_avion, id_piloto, id_copiloto) 
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
+            (id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, fecha_vuelo, hora_vuelo, aerolinea, id_avion, id_piloto, id_copiloto, id_agenda, estado) 
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
     try:
         cursor = con.cursor()
@@ -293,7 +293,7 @@ def seleccionar_todos_vuelos ():
     con = conexion_db()
 
     sql = """SELECT id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, fecha_vuelo, hora_vuelo, nom_aerolinea, id_avion, nom_piloto, ape_piloto
-            FROM (vuelo join aerolinea on vuelo.nit_aerolinea = aerolinea.nit_aerolinea) join piloto on vuelo.id_piloto = piloto.id_piloto
+            FROM (vuelo join aerolinea on aerolinea = nom_aerolinea) join piloto on vuelo.id_piloto = piloto.id_piloto
             ORDER BY 6,7;"""
 
     try:
@@ -383,7 +383,7 @@ def traer_tripulacion(_id_trip):
 def consulta_tipo_vuelo (_id_avion):
     con = conexion_db()
 
-    sql = f""" Select tipo_avion from avion where id_avion = {_id_avion}"""
+    sql = f""" Select tipo_avion from avion where id_avion like '%{_id_avion}%'"""
 
     try:
         cursor = con.cursor()
@@ -399,6 +399,29 @@ def consulta_tipo_vuelo (_id_avion):
         if con:
             cursor.close()
             con.close()
+
+# --------------------------------------------------------------------------------------------
+def cod_piloto_copiloto (_id_trip):
+    con = conexion_db()
+
+    sql = f"""select id_piloto from piloto where cod_tripulacion ='{_id_trip}'"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        tripu = cursor.fetchall()
+        print(tripu)
+        return tripu
+
+    except Error as e:
+        print ("Error al traer todos las tripulaciones"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
 # //////////////////////////////// ELIMINAR VUELO /////////////////////////////////////////////////
 def borrar_vuelo (_id_vuelo):
     con = conexion_db()
