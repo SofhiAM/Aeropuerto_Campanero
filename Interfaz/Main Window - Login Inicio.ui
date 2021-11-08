@@ -153,7 +153,7 @@ color: rgb(22, 117, 163);</string>
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="pg_bienvenido">
       <widget class="QLabel" name="label_cerrarsesion_2">
@@ -342,7 +342,7 @@ QPushButton:pressed
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-       <widget class="QTableWidget" name="tb_vistaGeneral">
+       <widget class="QTableWidget" name="tb_vistaGeneral_2">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1141,10 +1141,10 @@ QPushButton:pressed
          </rect>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="sk_vistaGeneral">
-         <widget class="QTableWidget" name="tb_vistaGeneral_2">
+         <widget class="QTableWidget" name="tb_vistaGeneral">
           <property name="geometry">
            <rect>
             <x>0</x>
@@ -1657,84 +1657,6 @@ font: 9 pt &quot;Open Sans&quot;</string>
         </widget>
        </widget>
       </widget>
-      <widget class="QLineEdit" name="le_buscarAgenda">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>30</y>
-         <width>201</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Open Sans</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="bt_buscarAgenda">
-       <property name="geometry">
-        <rect>
-         <x>490</x>
-         <y>30</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Nirmala UI</family>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton:hover
-{
-	border-style: solid;
-   	background-color:#bbdefb;
-
-}
-
-QPushButton:pressed
-{
-	background-color:#0069c0;
-}</string>
-       </property>
-       <property name="text">
-        <string>Buscar</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../Ventanas/Icons/buscar.png</normaloff>../Ventanas/Icons/buscar.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>30</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
       <widget class="QPushButton" name="bt_refreshAgenda">
        <property name="geometry">
         <rect>
@@ -2174,7 +2096,7 @@ QPushButton:pressed
 }</string>
        </property>
        <property name="text">
-        <string>Crear Nueva Agenda </string>
+        <string>Cambiar Agenda</string>
        </property>
        <property name="icon">
         <iconset>
@@ -2189,6 +2111,37 @@ QPushButton:pressed
        <property name="flat">
         <bool>true</bool>
        </property>
+      </widget>
+      <widget class="QComboBox" name="cb_agendas">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>30</y>
+         <width>271</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color : rgb(0,0,0);
+font: 10pt &quot;Nirmala UI&quot;</string>
+       </property>
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+       <property name="duplicatesEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>AGENERO</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QWidget" name="pg_vuelos">
@@ -3592,7 +3545,7 @@ QPushButton:hover
           </rect>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="pg_reg_avion">
           <widget class="QLabel" name="lb_Modelo_7">
