@@ -68,7 +68,7 @@ class Editar_usuarios (QWidget,editarUsuario):
 
             dlg = QMessageBox(self)
             dlg.setWindowTitle("Actualizacion exitosa")
-            dlg.setText("El usuario fue actualizado con éxito")
+            dlg.setText("El usuario fue actualizado con éxito. Actualice para ver los cambios")
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Information)
             dlg.show()

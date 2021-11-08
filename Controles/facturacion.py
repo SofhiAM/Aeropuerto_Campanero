@@ -7,6 +7,9 @@ from datetime import datetime
 from datetime import date
 import time
 
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import *
+
 class Factura (QWidget, Facturacion):
     
     def __init__ (self, parent = None, cod_hangar=""):
@@ -19,6 +22,7 @@ class Factura (QWidget, Facturacion):
 
         self.generar_factura()
         self.bt_confirmar_salida.clicked.connect(self.salida)
+        self.bt_confirmar_salida.clicked.connect(self.generarReporte_hangar)
 
 #----------------------------------------------------------------------------
     def generar_factura (self):
@@ -74,3 +78,9 @@ class Factura (QWidget, Facturacion):
                 dlg.setStandardButtons(QMessageBox.Ok)
                 dlg.setIcon(QMessageBox.Information)
                 dlg.show()
+# -----------------------------------------------------------------------------------               
+    def generarReporte_hangar(self):
+        c = canvas.Canvas("ReporteCostodeHangar.pdf")    
+        c.setLineWidth(.3)                              
+        c.setFont('Arial', 14)                              
+        c.drawString(120, 760, "Reporte Costo de Hangar")   

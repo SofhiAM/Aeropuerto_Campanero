@@ -5,8 +5,8 @@ from Database.avion_db import *
 from PySide2.QtWidgets import QWidget, QMessageBox
 from PySide2.QtCore import Qt
 
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
+
+
 
 class Hangares (QWidget,ocuparHangar):
 
@@ -16,10 +16,7 @@ class Hangares (QWidget,ocuparHangar):
         self.padre_ventana = parent
         self.setupUi(self)
         self.setWindowFlag (Qt.Window)
-
-        self.cod_hangar= cod_hangar
-        self.cargar_aerolineas()
-
+        
         self.cod_hangar= cod_hangar
         self.cargar_aerolineas()
 
@@ -44,10 +41,55 @@ class Hangares (QWidget,ocuparHangar):
         # Aquí se manda ese string ya listo al combo box    
             self.cb_Aerolinea.addItem(str(string))
             i += 1
-# ----------------------------------------------------------------------------------- 
+# ----------------------------------------------------------------------------------
+    # def registrar_hangar(self):
+
+    #     codigoHangar = self.textedit_codigoRH.text()
+    #     estadoHangar = "Libre"#self.textedit_ubicacionRH.text()
+    #     capacidadHangar = self.textedit_capacidadRH.text()
+
+        
+    #     analizar = (codigoHangar, ubicacionHangar, capacidadHangar)
+
+    #     i=0; b= True
+
+    #     while i < len(analizar) and b == True:
+    #         if analizar[i] != "":
+    #             i += 1
+    #             b = True
+
+    #         else:
+    #             dlg = QMessageBox(self)
+    #             dlg.setWindowTitle("Error")
+    #             dlg.setText("Para guardar el nuevo hangar todos los\n"+
+    #                         "campos deben estar llenos.\n"+
+    #                         "Por favor revise e intente de nuevo")
+    #             dlg.setStandardButtons(QMessageBox.Ok)
+    #             dlg.setIcon(QMessageBox.Critical)
+    #             dlg.show()
+    #             b = False
+
+    #     if b == True: 
+    #         datoshangar = (estadoHangar, capacidadHangar, codigoHangar)
+    #         registrar_usuario(datoshangar)
+    #         self.close()
+            
+    #         if alquilar_hangar(alquiler):
+    #             self.close ()
+                
+    #             dlg = QMessageBox(self)
+    #             dlg.setWindowTitle("Nuevo Hangar")
+    #             dlg.setText("Se ha guardado el Hangar con exito")
+    #             dlg.setStandardButtons(QMessageBox.Ok)
+    #             dlg.setIcon(QMessageBox.Information)
+    #             dlg.show()
+
+    #             self.cambiar_estado_hangar()
+# ----------------------------------------------------------------------------------
+        
     def ocupar_hangar(self):
         
-        codigoAvion = self.lineEdit_CodigoAvion.text()
+        codigoAvion = self.cb_cod_avion.currentText()
         modeloAvion = self.lineEdit_ModelodelAvion.text()
         fechaentrada = self.dateEdit_Fechaentrada.date().toPython()
         horaentrada = self.timeEdit_Horaentrada.time().toPython()
@@ -76,9 +118,9 @@ class Hangares (QWidget,ocuparHangar):
                 b = False
 
         if b == True: 
-            
+            #Aqui va todo lo de la base de datos
             alquiler = (self.cod_hangar, codigoAvion, fechaentrada, 
-                    horaentrada, valorhora, aerolinea)
+                    horaentrada, int(valorhora), aerolinea)
             
             if alquilar_hangar(alquiler):
                 self.close ()
@@ -110,11 +152,7 @@ class Hangares (QWidget,ocuparHangar):
             cambiar_estado_alibre(cod_hangar)
 
 # --------------------------------------------------------------------------------------
-    def generarReporte_hangar(self):
-        c = canvas.Canvas("ReporteCostodeHangar.pdf")    
-        c.setLineWidth(.3)                              
-        c.setFont('Arial', 14)                              
-        c.drawString(120, 760, "Reporte Costo de Hangar")   
+
 
 
 #----------------------------------------------------------------------------------
@@ -144,10 +182,4 @@ class Hangares (QWidget,ocuparHangar):
         self.lineEdit_ModelodelAvion.setText(modelo)
 #----------------------------------------------------------------------------------
     def evento_modelo (self):
-<<<<<<< HEAD
         self.cb_cod_avion.activated.connect(self.cargar_modelo_avion)
-=======
-        self.cb_cod_avion.activated.connect(self.cargar_modelo_avion)       
->>>>>>> 125f971278c9bac2f2088f4d75227e3fab376100
-
-

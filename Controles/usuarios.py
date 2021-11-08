@@ -3,17 +3,21 @@ from PySide2.QtWidgets import QWidget, QMessageBox
 from PySide2.QtCore import Qt
 from Database.usuariosDB import *
 
+
 class Usuarios (QWidget,registrodeUsuario):
+
     def __init__(self,parent=None):
         super().__init__(parent)
         self.padre_ventana = parent
         self.setupUi(self)
         self.setWindowFlag (Qt.Window)
 
-        self.bt_aceptarGEN.clicked.connect(self.agregar_usuario)
+        self.bt_guardarRU.clicked.connect(self.agregar_usuario)
 
+        print("h")
+        
     def agregar_usuario(self):
-    
+
         nom_usuario = self.lineEdit_Nombres.text()
         apell_usuario = self.lineEdit_Apellidos.text()
         tipoid_usuario = self.cb_TipodeID.currentText()
@@ -49,7 +53,7 @@ class Usuarios (QWidget,registrodeUsuario):
 
             dlg = QMessageBox(self)
             dlg.setWindowTitle("Registro exitoso")
-            dlg.setText("El usuario fue registrado con éxito")
+            dlg.setText("El usuario fue registrado con éxito. Actualice para ver los cambios")
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Information)
             dlg.show()
@@ -57,7 +61,8 @@ class Usuarios (QWidget,registrodeUsuario):
             return True
 #-------------------------------------------------------------------------------------------------
     def borrar_datos_usuario (self, id_usuario):
-    
+        
         eliminar_id_usuario(id_usuario)
 
         return True
+#-------------------------------------------------------------------------------------------------

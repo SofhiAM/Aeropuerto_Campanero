@@ -1,7 +1,8 @@
 from PySide2.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView, QMessageBox
 from PySide2.QtCore import Qt
 from Ventanas.main_window import mainWindow
-from Database.aeropuerto import seleccionar_todas_aerolineas, registrar_aerolinea, aerolinea_correo, aerolinea_tel, eliminar_aerolinea, seleccionar_todos_vuelos, consultar_aerolinea, vuelos_entidad,vuelos_pendientes,cambio_estado_espera,seleccionar_vuelos_salida, seleccionar_vuelos_llegada
+from .reprogramar_vuelos import ReprogramarVuelo
+from Database.aeropuerto import *
 from Database.hangares_db import traer_todos_hangares, crear_hangar, borrar_hangar, datos_factura
 from Database.usuariosDB import traer_todoslos_usuarios, verificacioncontrasena , verificaciontipo, consultar_entidad
 from Database.avion_db import *
@@ -186,6 +187,12 @@ class Principal (QWidget, mainWindow):
 
         #Boton Agendar vuelo
         self.bt_agendarVuelo.clicked.connect(self.agendar_en_aeropuerto)
+
+        #Boton eliminar vuelo
+        self.bt_eliminarVA.clicked.connect(self.eliminar_vuelo)
+
+        #Boton reprogramar vuelo
+        self.bt_infoVuelo.clicked.connect(self.reprogramar_vuelo)
 #@@
 # ///////////////////////////// AEROLINEA //////////////////////////////////////////////////////
 
@@ -566,6 +573,7 @@ class Principal (QWidget, mainWindow):
 
 # ---------------------------------------------------------------------------------------
     def tabla_general_vuelos_aerolinea (self):
+        self.tb_vistaAerolinea.setSelectionBehavior(QAbstractItemView.SelectRows)
         header = self.tb_vistaAerolinea.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.ResizeToContents)       
         self.tb_vistaAerolinea.verticalHeader().setDefaultAlignment(Qt.AlignHCenter)
@@ -708,7 +716,6 @@ class Principal (QWidget, mainWindow):
     def agendar_en_aeropuerto(self):
         window = Agenda(self)
         window.show()
-# //////////////////////////////// ELIMINAR VUELOS /////////////////////////////////////////////////
 
 # ///////////////////////////// USUARIOS //////////////////////////////////////////////////////             
     def reg_usuario (self):
@@ -990,6 +997,58 @@ class Principal (QWidget, mainWindow):
         return datos
         # Aquí se manda ese string ya listo al combo box  
         
+#/////////////////////////////////Eliminar Vuelos////////////////////////////////////////////////////
+    def eliminar_vuelo(self):
+        vuelo_seleccionado = self.tb_vistaAerolinea.selectedItems()
+
+        if vuelo_seleccionado:
+            cod_vuelo = vuelo_seleccionado[2].text()
+            print (cod_vuelo)
+            vuelo = vuelo_seleccionado[0].row()
+
+            # Mensaje de confirmación de si quiere borrar la aerolinea
+            dlg = QMessageBox.question(self, "Eliminar vuelo", 
+                        "¿Esta seguro que quiere eliminar este vuelo?", 
+                        QMessageBox.Ok, QMessageBox.Cancel)
+
+            #Si presiona Ok 
+            if dlg == QMessageBox.Ok:
+                if self.eliminar_datos_vuelo(cod_vuelo):
+                    self.tb_vistaAerolinea.removeRow(vuelo)
+                    QMessageBox.information(self, "Eliminado", "Vuelo eliminado con exito", QMessageBox.Ok)
+
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para eliminar una aerolínea, primero tiene que seleccionar una de ellas.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+
+    def eliminar_datos_vuelo(self, cod_vuelo):
+        borrar_vuelo(cod_vuelo)
+#/////////////////////////////////Reprogramar vuelo////////////////////////////////////////////////////
+    def reprogramar_vuelo(self):
+        vuelo_seleccionado = self.tb_vistaGeneral.selectedItems()
+
+        if vuelo_seleccionado:
+            id_vuelo = vuelo_seleccionado[2].text()
+            print (id_vuelo)
+            vuelo = vuelo_seleccionado[0].row()
+
+            window = ReprogramarVuelo(self, id_vuelo)
+            window.show()
+                    
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para editar un vuelo, primero tiene que seleccionar uno de ellos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+
 #/////////////////////////////////Tripulacion////////////////////////////////////////////////////
     def local_comprobar_id_tripulante (self, cod_trip):
         b = True
@@ -1177,47 +1236,40 @@ class Principal (QWidget, mainWindow):
         self.c = False
 
     def mod_vuelo(self):
-        window = Editar_Vuelo(self)
-        window.show()
+        vuelo_seleccionado = self.tb_vistaAerolinea.selectedItems()
+
+        if vuelo_seleccionado:
+            id_vuelo = vuelo_seleccionado[3].text()
+            print (id_vuelo)
+            vuelo = vuelo_seleccionado[0].row()
+
+            window = Editar_Vuelo(self, id_vuelo)
+            window.show()
+                    
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para editar un vuelo, primero tiene que seleccionar uno de ellos.\n"+
+                        "Por favor revise e intente de nuevo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+        
 
 #/////////////////////////////////Inicio de Sesion////////////////////////////////////////////////////
 
     def iniciar_sesion (self):
         
         user = self.correo_lineEdit.text()
+        print (user)
         contra = self.lgcontra_lineEdit_2.text()
-        self.contra = contra
-
-        if user!= "master":
-
-            entidad = consultar_entidad(self.contra)
-
-            characters = "(,')"
-            i=0 
-            while i < len(entidad):
-                entid = str(entidad [i])
-                for x in range(len(characters)):
-                    entid = entid.replace(characters[x],"")
-                i += 1
-            print (entid)
-
-            nit_aerolinea = consultar_aerolinea(entid)
-            characters = "(,')"
-            i=0 
-            while i < len(nit_aerolinea):
-                string = str(nit_aerolinea [i])
-                for x in range(len(characters)):
-                    string = string.replace(characters[x],"")
-                i += 1
-
-            data = vuelos_entidad(string)
-            self.cargar_tabla_vaerolinea(data)
-            self.cargar_tabla_vuelos_pendiente(vuelos_pendientes(string))
+        self.contra = contra  
 
         analizar = (user,contra)
 
         i=0; b= True
 
+        
         while i < len(analizar) and b == True:
             if analizar[i] != "":
                 i += 1
@@ -1234,7 +1286,33 @@ class Principal (QWidget, mainWindow):
                 dlg.show()
                 b = False
 
-        if b == True:
+        if b == True:         
+            if user != "master" :
+                characters = "(,')"
+                i=0 
+                entidad = consultar_entidad(self.contra)
+
+                while i < len(entidad):
+                    entid = str(entidad [i])
+                    for x in range(len(characters)):
+                        entid = entid.replace(characters[x],"")
+                    i += 1
+                print (entid)
+
+                if entid != "Campanero":
+                    nit_aerolinea = consultar_aerolinea(entid)
+                    characters = "(,')"
+                    i=0 
+                    while i < len(nit_aerolinea):
+                        string = str(nit_aerolinea [i])
+                        for x in range(len(characters)):
+                            string = string.replace(characters[x],"")
+                        i += 1
+
+                    data = vuelos_entidad(string)
+                    self.cargar_tabla_vaerolinea(data)
+                    self.cargar_tabla_vuelos_pendiente(vuelos_pendientes(string))
+
             contraseña = verificacioncontrasena(user)
             if contraseña == None:
                 dlg = QMessageBox(self)
@@ -1243,6 +1321,8 @@ class Principal (QWidget, mainWindow):
                 dlg.setStandardButtons(QMessageBox.Ok)
                 dlg.setIcon(QMessageBox.Critical)
                 dlg.show()
+
+                entidad = consultar_entidad(self.contra)
 
             else:
                 characters = "(,')"

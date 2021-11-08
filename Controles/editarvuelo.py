@@ -1,48 +1,28 @@
-from Ventanas.crear_vuelo import CrearVuelo
-from PySide2.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView, QMessageBox
-from Database.aeropuerto import consultar_aerolinea, consultar_avion, seleccionar_avion, crear_vuelo, crear_avion, seleccionar_todos_pilotos, seleccionar_todos_vuelos, borrar_vuelo, cod_tripulacion_pasajeros, cod_tripulacion_carga, traer_tripulacion, consulta_tipo_vuelo, cod_piloto_copiloto
-from Database.hangares_db import traer_todas_aerolineas
-from Database.avion_db import comprobar_id, buscar_avion
+from Ventanas.modificar_vuelo import modificarVuelo
+from PySide2.QtWidgets import QWidget, QMessageBox
+from Database.aeropuerto import *
 from PySide2.QtCore import Qt
 
-
-class Vuelos (QWidget,CrearVuelo):
-    
-    def __init__(self,parent=None):
+class Editar_Vuelo (QWidget,modificarVuelo):
+    def __init__(self,parent=None,cod_vuelo=""):
         super().__init__(parent)
         self.padre_ventana = parent
         self.setupUi(self)
         self.setWindowFlag (Qt.Window)
-        #self.bt_guardarTodo.setEnabled(False)
-        self.conCopiloto = False
+        self.cod_vuelo = cod_vuelo
+        self.datos_vuelo = ""
 
-        
-        #Cargar tabla pilotos
-        self.cargar_tripulacion()
-        
-        #Combo
-        self.cargar_combo_aerolineas()
-        self.cargar_combo_idaviones()
-
-        # #Aceptar general
-        self.bt_aceptarGEN.clicked.connect(self.verificacion_campos_general)
-
-        # #Aceptar avion
-        self.bt_aceptarAV.clicked.connect(self.verificacion_campos_avion)
-
-        #Boton Guardar Vuelo
-        self.bt_guardarTodo.clicked.connect(self.inf_vuelo)
-
-        # #Evento del combo, para que cuando se seleccione llegada se bloquee destino
-        # # y cuando se seleccione salida se bloquee origen.
+        self.traer_datos()
         self.bloqueo_combo_box()
         self.event_tipo_vuelo()
+    
+    def traer_datos(self):
+    
+        self.datos_vuelo = traer_vuelo(self.cod_vuelo)
+        
+        self.destino = self.cb_Destino.currentText()
+        self.origen = self.cb_Origen.currentText()
 
-        #Boton check avion
-        self.bt_check.clicked.connect(self.cargar_info_avion)
-
-# ///////////////////////////////////// CREAR VUELOS /////////////////////////////////////////
-# --------------------------------------------------------------------------------------------
     def event_tipo_vuelo (self):
         self.cb_tipovuelo.activated.connect(self.bloqueo_combo_box)
     
@@ -423,46 +403,3 @@ class Vuelos (QWidget,CrearVuelo):
         self.te_capacidad.setText(str(avion[2]))
         self.te_motores.setText(str(avion[6]))
         self.te_peso.setText(str(avion[5]))
-
-# -----------------------------------------------------------------------------------    
-#     def tabla_eliminar_vuelos (self):
-#         header = self.tb_vistaGeneralED.horizontalHeader()
-#         header.setSectionResizeMode(QHeaderView.ResizeToContents)       
-#         self.tb_vistaGeneralED.verticalHeader().setDefaultAlignment(Qt.AlignHCenter)
-#         self.tb_vistaGeneralED.resizeColumnsToContents()
-
-# # ------------------------------------------------------------------------------------
-#     def cargar_tabla_eliminar_vuelos(self,data):
-#         self.tb_vistaGeneralED.setRowCount(len(data))
-
-#         for(index_fila, fila) in enumerate(data):
-#             #indice, datos
-#             for (index_celda, celda) in enumerate(fila):
-#                 self.tb_vistaGeneralED.setItem(index_fila, index_celda, 
-#                 QTableWidgetItem(str(celda)))
-    
-# # -------------------------------------------------------------------------------------
-#     def actualizar_tb_eliminar_vuelos(self):
-#         data = seleccionar_todos_vuelos()
-#         self.cargar_tabla_eliminar_vuelos(data)
-    
-# # ////////////////////////////////// ELIMINAR VUELOS ////////////////////////////////////////
-#     def eliminar_vuelo (self):
-#         vuelo_seleccionado = self.tb_vistaGeneralED.selectedItems()
-
-#         if vuelo_seleccionado:
-#             id_vuelo = vuelo_seleccionado[0].text()
-#             print (id_vuelo)
-#             vuelo = vuelo_seleccionado[0].row()
-
-#             if borrar_vuelo(id_vuelo):
-#                 self.tb_vistaGeneralED.removeRow(vuelo)
-
-#         else:
-#             dlg = QMessageBox(self)
-#             dlg.setWindowTitle("Error")
-#             dlg.setText("Para eliminar un vuelo, primero tiene que seleccionar uno de ellos.\n"+
-#                         "Por favor revise e intente de nuevo")
-#             dlg.setStandardButtons(QMessageBox.Ok)
-#             dlg.setIcon(QMessageBox.Critical)
-#             dlg.show()

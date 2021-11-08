@@ -3,6 +3,10 @@ from Ventanas.agendar_vuelo import AgendarVuelo
 from Database.aeropuerto import *
 from Database.hangares_db import traer_todas_aerolineas
 from PySide2.QtCore import Qt
+import datetime
+from datetime import datetime
+from datetime import date
+import time
 
 class Agenda (QWidget, AgendarVuelo):
 
@@ -18,6 +22,8 @@ class Agenda (QWidget, AgendarVuelo):
         self.cargar_combo_aerolineas()
         self.event_tabla_vuelo()
         
+        self.bt_guardarAereolinea.clicked.connect(self.aceptar_vuelo)
+        self.bt_regresarAereolinea.clicked.connect(self.denegar_vuelo)
 
 # -----------------------------------------------------------------------------
     def cargar_combo_aerolineas(self):
@@ -73,7 +79,60 @@ class Agenda (QWidget, AgendarVuelo):
 # ---------------------------------------------------------------------------------
     def event_tabla_vuelo (self):
         self.cb_Aerolinea.activated.connect(self.cargar_tabla_vuelos)
+# ---------------------------------------------------------------------------------
+    def aceptar_vuelo (self):
+        vuelo_seleccionado = self.tb_agendAereolinea.selectedItems()
 
+        if vuelo_seleccionado:
+            id_vuelo= vuelo_seleccionado[2].text()
+            print (id_vuelo)
+            vuelo = vuelo_seleccionado[0].row()
 
+            # Mensaje de confirmación de si quiere borrar la aerolinea
+            dlg = QMessageBox.question(self, "Guardar Vuelo", 
+                        "¿Esta seguro que quiere agendar este vuelo?", 
+                        QMessageBox.Ok, QMessageBox.Cancel)
+
+            #Si presiona Ok 
+            if dlg == QMessageBox.Ok:
+                if aceptar_vuelo(id_vuelo):
+                    self.tb_agendAereolinea.removeRow(vuelo)
+                    QMessageBox.information(self, "Agendado", "Vuelo agendado con éxito", QMessageBox.Ok)
+
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para agendar un vuelo primero debe seleccionarlo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+
+# ---------------------------------------------------------------------------------
+    def denegar_vuelo (self):
+        vuelo_seleccionado = self.tb_agendAereolinea.selectedItems()
+
+        if vuelo_seleccionado:
+            id_vuelo= vuelo_seleccionado[2].text()
+            print (id_vuelo)
+            vuelo = vuelo_seleccionado[0].row()
+
+            # Mensaje de confirmación de si quiere borrar la aerolinea
+            dlg = QMessageBox.question(self, "Regresar Vuelo", 
+                        "¿Esta seguro que quiere regresar este vuelo?", 
+                        QMessageBox.Ok, QMessageBox.Cancel)
+
+            #Si presiona Ok 
+            if dlg == QMessageBox.Ok:
+                if rechazar_vuelo(id_vuelo):
+                    self.tb_agendAereolinea.removeRow(vuelo)
+                    QMessageBox.information(self, "Denegado", "Vuelo regresado a la aerolinea", QMessageBox.Ok)
+
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Para regresar un vuelo primero debe seleccionarlo")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
 
 
