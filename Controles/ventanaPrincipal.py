@@ -1,9 +1,9 @@
 from PySide2.QtWidgets import QWidget, QTableWidgetItem, QAbstractItemView, QHeaderView, QMessageBox
 from PySide2.QtCore import Qt
 from Ventanas.main_window import mainWindow
-from Database.aeropuerto import seleccionar_todas_aerolineas, registrar_aerolinea, aerolinea_correo, aerolinea_tel, eliminar_aerolinea, seleccionar_todos_vuelos
+from Database.aeropuerto import seleccionar_todas_aerolineas, registrar_aerolinea, aerolinea_correo, aerolinea_tel, eliminar_aerolinea, seleccionar_todos_vuelos, consultar_aerolinea, vuelos_entidad,vuelos_pendientes
 from Database.hangares_db import traer_todos_hangares, crear_hangar, borrar_hangar, datos_factura
-from Database.usuariosDB import traer_todoslos_usuarios, verificacioncontrasena , verificaciontipo
+from Database.usuariosDB import traer_todoslos_usuarios, verificacioncontrasena , verificaciontipo, consultar_entidad
 from Database.avion_db import *
 from .aerolineas import Aerolinea
 from .vuelos import Vuelos
@@ -15,6 +15,7 @@ from datetime import datetime
 from datetime import date
 from .editarusuario import Editar_usuarios
 from .editaravion import Editar_Avion
+from .editarvuelo import Editar_Vuelo
 import time
 
 
@@ -25,12 +26,16 @@ class Principal (QWidget, mainWindow):
         
         #Cargar Tablas 
         self.c = False
+        self.contra = " "
         self.tabla_aerolineas()
         self.tabla_Hangar()
         self.tabla_general_vuelos()
         self.cargar_tabla_aerolineas(seleccionar_todas_aerolineas())
         self.cargar_tabla_hangares(traer_todos_hangares())
         self.cargar_tabla_general(seleccionar_todos_vuelos())
+        self.tabla_general_vuelos_aerolinea()
+        self.tabla_general_vuelos_pendientes()
+        
         #**
         self.cargar_tabla_usuarios(traer_todoslos_usuarios ())
         self.cargar_tabla_aviones(traer_aviones())
@@ -156,6 +161,15 @@ class Principal (QWidget, mainWindow):
         #Boton guardar tripulacion
         self.bt_GuardarTrip.clicked.connect(self.guardar_tripulacion)
         self.bt_AgregarTrip.setEnabled(True)
+
+        #Boton modificar vuelo
+        self.bt_modificarVA.clicked.connect(self.mod_vuelo)
+
+        #Boton actualizar agenda aerolinea
+        self.bt_refreshAgenda_Aerolinea.clicked.connect(self.actualizar_tb_vaerolinea)
+
+        #Boton agenda pendiente
+        self.bt_agendaPendiente.clicked.connect(self.actualizar_tb_vuelos_pendientes)
 #@@
 # ///////////////////////////// AEROLINEA //////////////////////////////////////////////////////
 
@@ -488,6 +502,116 @@ class Principal (QWidget, mainWindow):
         data = seleccionar_todos_vuelos()
         self.cargar_tabla_general(data)
 
+# ---------------------------------------------------------------------------------------
+    def tabla_general_vuelos_aerolinea (self):
+        header = self.tb_vistaAerolinea.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.ResizeToContents)       
+        self.tb_vistaAerolinea.verticalHeader().setDefaultAlignment(Qt.AlignHCenter)
+        self.tb_vistaAerolinea.resizeColumnsToContents()
+
+# --------------------------------------------------------------------------------------
+    def cargar_tabla_vaerolinea(self, data):
+
+        entidad = consultar_entidad(self.contra)
+
+        characters = "(,')"
+        i=0 
+        while i < len(entidad):
+            entid = str(entidad [i])
+            for x in range(len(characters)):
+                entid = entid.replace(characters[x],"")
+            i += 1
+        print (entid)
+
+        nit_aerolinea = consultar_aerolinea(entid)
+        characters = "(,')"
+        i=0 
+        while i < len(nit_aerolinea):
+            string = str(nit_aerolinea [i])
+            for x in range(len(characters)):
+                string = string.replace(characters[x],"")
+            i += 1
+
+        data = vuelos_entidad(string)
+
+        self.tb_vistaAerolinea.setRowCount(len(data))
+
+        for(index_fila, fila) in enumerate(data):
+            #indice, datos
+            for (index_celda, celda) in enumerate(fila):
+                self.tb_vistaAerolinea.setItem(index_fila, index_celda, 
+                QTableWidgetItem(str(celda)))
+
+# --------------------------------------------------------------------------------------
+    def actualizar_tb_vaerolinea(self):
+        entidad = consultar_entidad(self.contra)
+
+        characters = "(,')"
+        i=0 
+        while i < len(entidad):
+            entid = str(entidad [i])
+            for x in range(len(characters)):
+                entid = entid.replace(characters[x],"")
+            i += 1
+        print (entid)
+
+        nit_aerolinea = consultar_aerolinea(entid)
+        characters = "(,')"
+        i=0 
+        while i < len(nit_aerolinea):
+            string = str(nit_aerolinea [i])
+            for x in range(len(characters)):
+                string = string.replace(characters[x],"")
+            i += 1
+
+        data = vuelos_entidad(string)
+        self.cargar_tabla_vaerolinea(data)
+
+# ------------------------------------------------------------------------------------------------
+    def tabla_general_vuelos_pendientes (self):
+        header = self.tb_vistaAerolineaPendiente.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.ResizeToContents)       
+        self.tb_vistaAerolineaPendiente.verticalHeader().setDefaultAlignment(Qt.AlignHCenter)
+        self.tb_vistaAerolineaPendiente.resizeColumnsToContents()
+
+# --------------------------------------------------------------------------------------
+    def cargar_tabla_vuelos_pendiente(self, data):
+        
+        self.tb_vistaAerolineaPendiente.setRowCount(len(data))
+
+        for(index_fila, fila) in enumerate(data):
+            #indice, datos
+            for (index_celda, celda) in enumerate(fila):
+                self.tb_vistaAerolineaPendiente.setItem(index_fila, index_celda, 
+                QTableWidgetItem(str(celda)))
+
+# --------------------------------------------------------------------------------------
+    def actualizar_tb_vuelos_pendientes(self):
+        entidad = consultar_entidad(self.contra)
+
+        characters = "(,')"
+        i=0 
+        while i < len(entidad):
+            entid = str(entidad [i])
+            for x in range(len(characters)):
+                entid = entid.replace(characters[x],"")
+            i += 1
+        print (entid)
+
+        nit_aerolinea = consultar_aerolinea(entid)
+        characters = "(,')"
+        i=0 
+        while i < len(nit_aerolinea):
+            string = str(nit_aerolinea [i])
+            for x in range(len(characters)):
+                string = string.replace(characters[x],"")
+            i += 1
+
+        
+        data = vuelos_pendientes(string)
+        self.cargar_tabla_vuelos_pendiente(data)
+    
+
 # //////////////////////////////// ELIMINAR VUELOS /////////////////////////////////////////////////
 
 # ///////////////////////////// USUARIOS //////////////////////////////////////////////////////             
@@ -796,7 +920,7 @@ class Principal (QWidget, mainWindow):
                     b = False
 
         return b
-
+# --------------------------------------------------------------------------------------------------
     def  nueva_tripulacion(self):
         codtripulacion = self.textedit_codTripulacion.text()
         nombre = self.textedit_nombre.text()
@@ -856,10 +980,7 @@ class Principal (QWidget, mainWindow):
             dlg.setIcon(QMessageBox.Critical)
             dlg.show()
 
-        
-
-
-
+# --------------------------------------------------------------------------------------------------        
     def guardar_tripulacion(self):
         codtripulacion = self.textedit_codTripulacion.text()
         nombre = self.textedit_nombre.text()
@@ -959,13 +1080,42 @@ class Principal (QWidget, mainWindow):
 
         self.c = False
 
-#/////////////////////////////////Inicio de Secion////////////////////////////////////////////////////
+    def mod_vuelo(self):
+        window = Editar_Vuelo(self)
+        window.show()
+
+#/////////////////////////////////Inicio de Sesion////////////////////////////////////////////////////
 
     def iniciar_sesion (self):
         
         user = self.correo_lineEdit.text()
         contra = self.lgcontra_lineEdit_2.text()
-        
+        self.contra = contra
+
+        entidad = consultar_entidad(self.contra)
+
+        characters = "(,')"
+        i=0 
+        while i < len(entidad):
+            entid = str(entidad [i])
+            for x in range(len(characters)):
+                entid = entid.replace(characters[x],"")
+            i += 1
+        print (entid)
+
+        nit_aerolinea = consultar_aerolinea(entid)
+        characters = "(,')"
+        i=0 
+        while i < len(nit_aerolinea):
+            string = str(nit_aerolinea [i])
+            for x in range(len(characters)):
+                string = string.replace(characters[x],"")
+            i += 1
+
+        data = vuelos_entidad(string)
+        self.cargar_tabla_vaerolinea(data)
+        self.cargar_tabla_vuelos_pendiente(vuelos_pendientes(string))
+
         analizar = (user,contra)
 
         i=0; b= True
@@ -1038,6 +1188,7 @@ class Principal (QWidget, mainWindow):
             self.bt_Vuelos.setEnabled(False)
             self.bt_Aerolineas.setEnabled(True)
             self.bt_agendaMain.setEnabled(True)
+            
 
         if string == "Admin. Hangares":
             self.bt_usuarios.setEnabled(False)
@@ -1052,6 +1203,7 @@ class Principal (QWidget, mainWindow):
             self.bt_Hangares.setEnabled(False)
             self.bt_Aerolineas.setEnabled(False)
             self.bt_Vuelos.setEnabled(True)
+
 
     
         
