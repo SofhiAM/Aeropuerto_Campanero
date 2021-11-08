@@ -248,8 +248,8 @@ def crear_avion (data):
     con = conexion_db()
 
     sql = """INSERT INTO avion 
-            (id_avion, tipo_avion, propulsion, cod_modelo, capacidad, num_motores, peso) 
-            VALUES (%s,%s,%s,%s,%s,%s,%s)"""
+            (id_avion, tipo_avion, cod_modelo, capacidad) 
+            VALUES (%s,%s,%s,%s)"""
 
     try:
         cursor = con.cursor()
@@ -312,6 +312,93 @@ def seleccionar_todos_vuelos ():
             cursor.close()
             con.close()
 
+# -------------------------------------------------------------------------------------------------
+def cod_tripulacion_pasajeros():
+    con = conexion_db()
+
+    sql = """select cod_tripulacion from piloto group by 1 having count(cod_tripulacion) =2 order by 1;"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        tripulaciones = cursor.fetchall()
+        print(tripulaciones)
+        return tripulaciones
+
+    except Error as e:
+        print ("Error al traer las tripulaciones"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# --------------------------------------------------------------------------------------------------
+def cod_tripulacion_carga():
+    con = conexion_db()
+
+    sql = """select cod_tripulacion from piloto group by 1 having count(cod_tripulacion) =1 order by 1;"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        tripulaciones = cursor.fetchall()
+        print(tripulaciones)
+        return tripulaciones
+
+    except Error as e:
+        print ("Error al traer las tripulaciones"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# ----------------------------------------------------------------------------
+def traer_tripulacion(_id_trip):
+    con = conexion_db()
+
+    sql = f"""select id_piloto, nom_piloto, ape_piloto, id_licencia, fecha_revmed, horas_vuelo
+            from piloto where cod_tripulacion = '{_id_trip}'"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        tripu = cursor.fetchall()
+        print(tripu)
+        return tripu
+
+    except Error as e:
+        print ("Error al traer todos las tripulaciones"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# --------------------------------------------------------------------------------------
+def consulta_tipo_vuelo (_id_avion):
+    con = conexion_db()
+
+    sql = f""" Select tipo_avion from avion where id_avion = {_id_avion}"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        tipo = cursor.fetchone()
+        return tipo
+
+    except Error as e:
+        print ("Error al traer el tipo de avion: "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
 # //////////////////////////////// ELIMINAR VUELO /////////////////////////////////////////////////
 def borrar_vuelo (_id_vuelo):
     con = conexion_db()

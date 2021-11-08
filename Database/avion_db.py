@@ -110,7 +110,9 @@ def buscar_modelo (_id_avion):
 def buscar_avion(_id_avion):
     con = conexion_db()
 
-    sql = f"""SELECT id_avion, tipo_avion, capacidad, cod_modelo FROM avion WHERE id_avion = '{_id_avion}';"""
+    sql = f"""SELECT id_avion, tipo_avion, capacidad, avion.cod_modelo, tipo_propulsion, peso_nominal,
+            num_motores, descripcion FROM avion join modelo on avion.cod_modelo = modelo.cod_modelo 
+            WHERE id_avion = '{_id_avion}';"""
 
     try:
         cursor = con.cursor()
