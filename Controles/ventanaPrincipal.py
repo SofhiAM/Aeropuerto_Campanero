@@ -24,6 +24,7 @@ class Principal (QWidget, mainWindow):
         self.setupUi(self)
         
         #Cargar Tablas 
+        self.c = False
         self.tabla_aerolineas()
         self.tabla_Hangar()
         self.tabla_general_vuelos()
@@ -43,7 +44,7 @@ class Principal (QWidget, mainWindow):
         self.bt_Aerolineas.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_aerolinea))
         self.bt_usuarios.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_usuarios))
         #&&
-        self.bt_agendaMain.clicked.connect(lambda: self.sk_mainWindow.setCurrentWidget(self.pg_agenda))
+        
         
         # Conectar con la multipágina de inicio de sesion
         self.bt_CerrarSesion.clicked.connect(lambda: self.pag_Main.setCurrentWidget(self.Login))
@@ -60,6 +61,9 @@ class Principal (QWidget, mainWindow):
         self.bt_aviones.clicked.connect(lambda: self.sw_vuelos_av_trip.setCurrentWidget(self.pg_aviones))
         self.bt_agregarAvion.clicked.connect(lambda: self.sw_reg_ver_avion.setCurrentWidget(self.pg_reg_avion))
         self.bt_cancelar_RA.clicked.connect(lambda: self.sw_reg_ver_avion.setCurrentWidget(self.pg_vista_aviones))
+        #@@
+        self.bt_nuevaTrip.clicked.connect(lambda: self.sw_reg_ver_avion.setCurrentWidget(self.pg_vista_aviones))
+        #@@
         #$$
 
         #Conectar Nueva Tripulacion con el boton
@@ -147,7 +151,11 @@ class Principal (QWidget, mainWindow):
         self.bt_ingresarlg.clicked.connect(self.iniciar_sesion)
 
         #Boton nueva tripulacion
-        self.bt_nuevaTrip.clicked.connect(self.nueva_tripulacion)
+        self.bt_AgregarTrip.clicked.connect(self.nueva_tripulacion)
+        
+        #Boton guardar tripulacion
+        self.bt_GuardarTrip.clicked.connect(self.guardar_tripulacion)
+        self.bt_AgregarTrip.setEnabled(True)
 #@@
 # ///////////////////////////// AEROLINEA //////////////////////////////////////////////////////
 
@@ -694,6 +702,8 @@ class Principal (QWidget, mainWindow):
                     b = False
 
         return b
+
+
 # -----------------------------------------------------------------    
     def habilitar_campos_regvuelo (self):
         #Comprobación de ID
@@ -759,10 +769,196 @@ class Principal (QWidget, mainWindow):
 
         return datos
         # Aquí se manda ese string ya listo al combo box  
-          
+        
 #/////////////////////////////////Tripulacion////////////////////////////////////////////////////
+    def local_comprobar_id_tripulante (self, cod_trip):
+        b = True
+
+        tripulaciones = comprobar_cod_tripulante()
+        print (cod_trip)
+        print (tripulaciones)
+        if len(tripulaciones) == 0:
+            b = True
+        else:
+            i = 0
+            while i < len(tripulaciones) and b == True:
+
+                characters = "(,')"
+                tripulacion = str(tripulaciones[i])
+                for x in range(len(characters)):
+                    tripulacion = tripulacion.replace(characters[x],"")
+
+                print (tripulacion)
+                if tripulacion != cod_trip:
+                    i +=1 
+                    print (b)
+                else:
+                    b = False
+
+        return b
+
     def  nueva_tripulacion(self):
-        pass           
+        codtripulacion = self.textedit_codTripulacion.text()
+        nombre = self.textedit_nombre.text()
+        apellido = self.textedit_Apellido.text()
+        tipoid = self.cb_tipoID.currentText()
+        numeroid = self.textedit_numeroID.text()
+        licencia = self.textedit_licencia.text()
+        fechaultimarev = self.date_fechaUltimaRevision.date().toPython()
+        horasdevuelo = self.spinBox_HorasVuelo.value()
+
+        if self.local_comprobar_id_tripulante(codtripulacion):
+
+            analizar = (codtripulacion, nombre, apellido, tipoid, numeroid, licencia, fechaultimarev, horasdevuelo)
+
+            i=0; b= True
+
+            while i < len(analizar) and b == True:
+                if analizar[i] != "":
+                    i += 1
+                    b = True
+
+                else:
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Error")
+                    dlg.setText("Para agregar la tripulacion todos\n"+
+                                "los campos deben estar llenos.\n")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Critical)
+                    dlg.show()
+                    b = False
+
+            if b == True: 
+                datostrip = (licencia, nombre, apellido, horasdevuelo, fechaultimarev, numeroid, codtripulacion )
+                if nueva_trip(datostrip):
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Tripulacion")
+                    dlg.setText("Tripulante guardado con exito")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Information)
+                    dlg.show()
+
+                    self.textedit_codTripulacion.setEnabled(False)
+                    self.textedit_nombre.clear()
+                    self.textedit_Apellido.clear()
+                    self.textedit_numeroID.clear()
+                    self.textedit_licencia.clear()
+
+                    self.bt_AgregarTrip.setEnabled(False)
+
+                    self.c = True
+
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Codigo de tripulacion ya existente")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+
+        
+
+
+
+    def guardar_tripulacion(self):
+        codtripulacion = self.textedit_codTripulacion.text()
+        nombre = self.textedit_nombre.text()
+        apellido = self.textedit_Apellido.text()
+        tipoid = self.cb_tipoID.currentText()
+        numeroid = self.textedit_numeroID.text()
+        licencia = self.textedit_licencia.text()
+        fechaultimarev = self.date_fechaUltimaRevision.date().toPython()
+        horasdevuelo = self.spinBox_HorasVuelo.value()
+        print(self.c)
+        if self.c == True:
+            
+            analizar = (codtripulacion, nombre, apellido, tipoid, numeroid, licencia, fechaultimarev, horasdevuelo)
+
+            i=0; b= True
+
+            while i < len(analizar) and b == True:
+                if analizar[i] != "":
+                    i += 1
+                    b = True
+
+                else:
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Error")
+                    dlg.setText("Para agregar la tripulacion todos\n"+
+                                "los campos deben estar llenos.\n")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Critical)
+                    dlg.show()
+                    b = False
+
+            if b == True: 
+                datostrip = (licencia, nombre, apellido, horasdevuelo, fechaultimarev, numeroid, codtripulacion )
+                if nueva_trip(datostrip):
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Tripulacion")
+                    dlg.setText("Tripulante guardado con exito")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Information)
+                    dlg.show()
+
+                    self.textedit_codTripulacion.clear()
+                    self.textedit_codTripulacion.setEnabled(True)
+                    self.textedit_nombre.clear()
+                    self.textedit_Apellido.clear()
+                    self.textedit_numeroID.clear()
+                    self.textedit_licencia.clear()
+
+                    self.bt_AgregarTrip.setEnabled(True)
+
+        elif self.local_comprobar_id_tripulante(codtripulacion):
+
+            analizar = (codtripulacion, nombre, apellido, tipoid, numeroid, licencia, fechaultimarev, horasdevuelo)
+
+            i=0; b= True
+
+            while i < len(analizar) and b == True:
+                if analizar[i] != "":
+                    i += 1
+                    b = True
+
+                else:
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Error")
+                    dlg.setText("Para agregar la tripulacion todos\n"+
+                                "los campos deben estar llenos.\n")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Critical)
+                    dlg.show()
+                    b = False
+
+            if b == True: 
+                datostrip = (licencia, nombre, apellido, horasdevuelo, fechaultimarev, numeroid, codtripulacion )
+                if nueva_trip(datostrip):
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Tripulacion")
+                    dlg.setText("Tripulante guardado con exito")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Information)
+                    dlg.show()
+
+                    self.textedit_codTripulacion.clear()
+                    self.textedit_codTripulacion.setEnabled(True)
+                    self.textedit_nombre.clear()
+                    self.textedit_Apellido.clear()
+                    self.textedit_numeroID.clear()
+                    self.textedit_licencia.clear()
+
+                    self.bt_AgregarTrip.setEnabled(True)
+        else:
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Error")
+            dlg.setText("Codigo de tripulacion ya existente")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Critical)
+            dlg.show()
+
+        self.c = False
+
 #/////////////////////////////////Inicio de Secion////////////////////////////////////////////////////
 
     def iniciar_sesion (self):

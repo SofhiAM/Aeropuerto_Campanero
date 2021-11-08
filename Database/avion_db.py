@@ -233,3 +233,43 @@ def borrar_datos_avion (_id_avion):
         if con:
             cursor.close()
             con.close()
+
+def nueva_trip(datos):
+    conn = conexion_db()
+    sql = """INSERT INTO piloto 
+            (id_licencia, nom_piloto, ape_piloto, horas_vuelo, fecha_revmed, id_piloto, cod_tripulacion) 
+            VALUES (%s,%s,%s,%s,%s,%s,%s)"""
+    try:
+        cursor = conn.cursor()
+        cursor.execute (sql, datos)
+        conn.commit()
+        print("Nuevo tripulante agregado")
+        return True
+
+    except Error as e:
+        print ("Error al agregar tripulante "+ str(e))
+
+    finally:
+        if conn:
+            cursor.close()
+            conn.close()
+
+def comprobar_cod_tripulante ():
+    con = conexion_db()
+
+    sql = """SELECT distinct cod_tripulacion from piloto"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        tripulaciones = cursor.fetchall()
+        return tripulaciones
+
+    except Error as e:
+        print ("Error al traer cod tripulante: "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
