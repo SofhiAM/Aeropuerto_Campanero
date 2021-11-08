@@ -3,7 +3,7 @@ from PySide2.QtCore import Qt
 from Ventanas.main_window import mainWindow
 from Database.aeropuerto import seleccionar_todas_aerolineas, registrar_aerolinea, aerolinea_correo, aerolinea_tel, eliminar_aerolinea, seleccionar_todos_vuelos
 from Database.hangares_db import traer_todos_hangares, crear_hangar, borrar_hangar, datos_factura
-from Database.usuariosDB import traer_todoslos_usuarios
+from Database.usuariosDB import traer_todoslos_usuarios, verificacioncontrasena , verificaciontipo
 from Database.avion_db import *
 from .aerolineas import Aerolinea
 from .vuelos import Vuelos
@@ -142,6 +142,13 @@ class Principal (QWidget, mainWindow):
 
         #Boton editar avion
         self.bt_modificarAvion.clicked.connect(self.modificar_avion)
+#@@
+        #Boton iniciar sesion
+        self.bt_ingresarlg.clicked.connect(self.iniciar_sesion)
+
+        #Boton nueva tripulacion
+        self.bt_nuevaTrip.clicked.connect(self.nueva_tripulacion)
+#@@
 # ///////////////////////////// AEROLINEA //////////////////////////////////////////////////////
 
     def reg_aerolinea (self):
@@ -751,5 +758,105 @@ class Principal (QWidget, mainWindow):
             datos.append(string)
 
         return datos
-        # Aquí se manda ese string ya listo al combo box    
+        # Aquí se manda ese string ya listo al combo box  
+          
+#/////////////////////////////////Tripulacion////////////////////////////////////////////////////
+    def  nueva_tripulacion(self):
+        pass           
+#/////////////////////////////////Inicio de Secion////////////////////////////////////////////////////
+
+    def iniciar_sesion (self):
+        
+        user = self.correo_lineEdit.text()
+        contra = self.lgcontra_lineEdit_2.text()
+        
+        analizar = (user,contra)
+
+        i=0; b= True
+
+        while i < len(analizar) and b == True:
+            if analizar[i] != "":
+                i += 1
+                b = True
+
+            else:
+                dlg = QMessageBox(self)
+                dlg.setWindowTitle("Error")
+                dlg.setText("Para iniciar sesion todos los\n"+
+                            "campos deben estar llenos.\n"+
+                            "Por favor revise e intente de nuevo")
+                dlg.setStandardButtons(QMessageBox.Ok)
+                dlg.setIcon(QMessageBox.Critical)
+                dlg.show()
+                b = False
+
+        if b == True:
+            contraseña = verificacioncontrasena(user)
+            if contraseña == None:
+                dlg = QMessageBox(self)
+                dlg.setWindowTitle("Error")
+                dlg.setText("Correo electronico no existente")
+                dlg.setStandardButtons(QMessageBox.Ok)
+                dlg.setIcon(QMessageBox.Critical)
+                dlg.show()
+
+            else:
+                characters = "(,')"
+                i=0 
+                while i < len(contraseña):
+                    string = str(contraseña[i])
+                    for x in range(len(characters)):
+                        string = string.replace(characters[x],"")
+                    i += 1
+                if string == contra:
+                    self.pag_Main.setCurrentWidget(self.Controls)
+                    self.sk_mainWindow.setCurrentWidget(self.pg_bienvenido)
+                    self.correo_lineEdit.clear()
+                    self.lgcontra_lineEdit_2.clear()
+
+                    self.desactivarbotoneslogin(user)
+                else:
+                    dlg = QMessageBox(self)
+                    dlg.setWindowTitle("Error")
+                    dlg.setText("Contraseña incorrecta")
+                    dlg.setStandardButtons(QMessageBox.Ok)
+                    dlg.setIcon(QMessageBox.Critical)
+                    dlg.show()
+                
+
+                
+    def desactivarbotoneslogin(self , user):
+        tipouser = verificaciontipo(user)   
+        characters = "(,')"
+        i=0 
+        while i < len(tipouser):
+            string = str(tipouser[i])
+            for x in range(len(characters)):
+                string = string.replace(characters[x],"")
+            i += 1
+        print(string)
+
+        if string == "Funcionario de vuelos ":
+            self.bt_usuarios.setEnabled(False)                  
+            self.bt_Hangares.setEnabled(False)
+            self.bt_Vuelos.setEnabled(False)
+            self.bt_Aerolineas.setEnabled(True)
+            self.bt_agendaMain.setEnabled(True)
+
+        if string == "Admin. Hangares":
+            self.bt_usuarios.setEnabled(False)
+            self.bt_Aerolineas.setEnabled(False)
+            self.bt_agendaMain.setEnabled(False)
+            self.bt_Vuelos.setEnabled(False)
+            self.bt_Hangares.setEnabled(True)
+
+        if string == "Admin. de aereolinea":
+            self.bt_usuarios.setEnabled(False)
+            self.bt_agendaMain.setEnabled(False)
+            self.bt_Hangares.setEnabled(False)
+            self.bt_Aerolineas.setEnabled(False)
+            self.bt_Vuelos.setEnabled(True)
+
+    
+        
             
