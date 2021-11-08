@@ -175,6 +175,7 @@ def crear_vuelo(data):
             con.close()
 # -------------------------------------------------------------------------------------------------------------
 def consultar_aerolinea (_nom_aerolinea):
+    
     con = conexion_db()
 
     sql = f""" SELECT nit_aerolinea
@@ -183,7 +184,7 @@ def consultar_aerolinea (_nom_aerolinea):
 
     try:
         cursor = con.cursor()
-        cursor.execute (sql)
+        cursor.execute (sql, _nom_aerolinea)
         con.commit()
         nit = cursor.fetchone()
         return nit
@@ -292,9 +293,8 @@ def seleccionar_todos_pilotos ():
 def seleccionar_todos_vuelos ():
     con = conexion_db()
 
-    sql = """SELECT id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, fecha_vuelo, hora_vuelo, nom_aerolinea, id_avion, nom_piloto, ape_piloto
-            FROM (vuelo join aerolinea on aerolinea = nom_aerolinea) join piloto on vuelo.id_piloto = piloto.id_piloto
-            ORDER BY 6,7;"""
+    sql = """SELECT fecha_vuelo, hora_vuelo, id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, estado FROM vuelo
+            where estado = 'Aceptado';"""
 
     try:
         cursor = con.cursor()
@@ -311,7 +311,50 @@ def seleccionar_todos_vuelos ():
         if con:
             cursor.close()
             con.close()
+# --------------------------------------------------------------------------------------------------------------------------------------------------
+def seleccionar_vuelos_salida ():
+    con = conexion_db()
 
+    sql = """SELECT fecha_vuelo, hora_vuelo, id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, estado FROM vuelo
+            where estado = 'Aceptado' and tipo_vuelo = 'Salida';"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        vuelos = cursor.fetchall()
+        print(vuelos)
+        return vuelos
+
+    except Error as e:
+        print ("Error al traer todos los vuelos"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+# --------------------------------------------------------------------------------------------------------------------------------------------------
+def seleccionar_vuelos_llegada ():
+    con = conexion_db()
+
+    sql = """SELECT fecha_vuelo, hora_vuelo, id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, estado FROM vuelo
+            where estado = 'Aceptado' and tipo_vuelo = 'Llegada';"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql)
+        con.commit()
+        vuelos = cursor.fetchall()
+        print(vuelos)
+        return vuelos
+
+    except Error as e:
+        print ("Error al traer todos los vuelos"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
 # -------------------------------------------------------------------------------------------------
 def cod_tripulacion_pasajeros():
     con = conexion_db()
@@ -422,6 +465,139 @@ def cod_piloto_copiloto (_id_trip):
             cursor.close()
             con.close()
 
+# -------------------------------------------------------------------------------------------------
+def vuelos_entidad (ent):
+    con = conexion_db()
+
+    sql = f"""SELECT fecha_vuelo, hora_vuelo,id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, estado
+            FROM (vuelo join aerolinea on aerolinea = nit_aerolinea) where aerolinea = '{ent}' """
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql, ent)
+        con.commit()
+        vuellos = cursor.fetchall()
+        print(vuellos)
+        return vuellos
+
+    except Error as e:
+        print ("Error al traer todos los vuelos"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# -------------------------------------------------------------------------------------------------
+def vuelos_pendientes (_nit):
+    con = conexion_db()
+
+    sql = f"""SELECT fecha_vuelo, hora_vuelo,id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, estado
+            FROM (vuelo join aerolinea on aerolinea = nit_aerolinea) where estado = 'No Enviado' 
+            and aerolinea = '{_nit}'"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql,_nit)
+        con.commit()
+        vuellos = cursor.fetchall()
+        print(vuellos)
+        return vuellos
+
+    except Error as e:
+        print ("Error al traer todos los vuelos"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+# ---------------------------------------------------------------------------------------------
+def cambio_estado_espera(_nit):
+    con = conexion_db()
+
+    sql = f"""update vuelo set estado = 'En espera' where aerolinea = '{_nit}' """
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql, _nit)
+        con.commit()
+        print("Estado cambiado a EN ESPERA")
+        return True
+
+    except Error as e:
+        print ("Error al cambiar estado "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+# //////////////////////////////// AGENDAR EN AEROPUERTO //////////////////////////////////////////
+def traer_vuelos_espera(_nit):
+    con = conexion_db()
+
+    sql = f"""SELECT hora_vuelo, fecha_vuelo, id_vuelo, tipo_vuelo, estado
+            FROM (vuelo join aerolinea on aerolinea = nit_aerolinea) where estado = 'En espera' 
+            and aerolinea = '{_nit}'"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql,_nit)
+        con.commit()
+        espera = cursor.fetchall()
+        print(espera)
+        return espera
+
+    except Error as e:
+        print ("Error al traer todos los vuelos en espera"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# ---------------------------------------------------------------------------------
+def aceptar_vuelo(_id_vuelo):
+    con = conexion_db()
+
+    sql = f"""update vuelo set estado = 'Aceptado' where id_vuelo = '{_id_vuelo}';"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql, _id_vuelo)
+        con.commit()
+        print("Estado cambiado a ACEPTADO")
+        return True
+        
+    except Error as e:
+        print ("Error al cambiar de estado"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+# ---------------------------------------------------------------------------------
+def rechazar_vuelo(_id_vuelo):
+    con = conexion_db()
+
+    sql = f"""update vuelo set estado = 'Denegado' where id_vuelo = '{_id_vuelo}';"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql, _id_vuelo)
+        con.commit()
+        print("Estado cambiado a DENEGADO")
+        return True
+        
+    except Error as e:
+        print ("Error al cambiar de estado"+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+
 # //////////////////////////////// ELIMINAR VUELO /////////////////////////////////////////////////
 def borrar_vuelo (_id_vuelo):
     con = conexion_db()
@@ -431,11 +607,58 @@ def borrar_vuelo (_id_vuelo):
         cursor = con.cursor()
         cursor.execute (sql)
         con.commit()
-        print("Vuelo Eliminada")
+        print("Vuelo Eliminado")
         return True
 
     except Error as e:
-        print ("Error al eliminar aerolinea "+ str(e))
+        print ("Error al eliminar vuelo "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
+
+
+def actualizar_vuelo (_id_vuelo, datos):
+    conn = conexion_db()
+    sql = f""" UPDATE vuelo SET
+                            id_vuelo = %s,
+                            fecha_vuelo = %s,
+                            hora_vuelo = %s
+                            
+            WHERE id_vuelo = '{_id_vuelo}'
+    """
+    try:
+        cursor = conn.cursor()
+        cursor.execute(sql, datos)
+        conn.commit()
+        print("Vuelo Actualizado")
+        return True
+
+    except Error as e:
+        print ("Error al actualizar vuelo "+ str(e))
+
+    finally:
+        if conn:
+            cursor.close()
+            conn.close()
+
+def traer_vuelo(_id_vuelo):
+    con = conexion_db()
+
+    sql = f"""SELECT fecha_vuelo, hora_vuelo, id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, estado
+            FROM (vuelo join aerolinea on aerolinea = nit_aerolinea) where id_vuelo = '{_id_vuelo}'"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql,_id_vuelo)
+        con.commit()
+        vuelo = cursor.fetchone()
+        print(vuelo)
+        return vuelo
+
+    except Error as e:
+        print ("Error al traer el vuelo"+ str(e))
 
     finally:
         if con:

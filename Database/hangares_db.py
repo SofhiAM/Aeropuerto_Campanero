@@ -191,7 +191,7 @@ def cambiar_estado_alibre (_cod_hangar):
         if con:
             cursor.close()
             con.close()
-            
+
 # -----------------------------------------------------------------------------------------------
 def crear_hangar (datos):
     

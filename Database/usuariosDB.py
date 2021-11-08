@@ -150,3 +150,24 @@ def actualizar_usuario (_id_usuario, datos):
         if conn:
             cursor.close()
             conn.close()
+
+# --------------------------------------------------------------
+def consultar_entidad (_contrasena):
+    con = conexion_db()
+
+    sql = f"""SELECT entidad from usuario where contraseña_usu = '{_contrasena}';"""
+
+    try:
+        cursor = con.cursor()
+        cursor.execute (sql,_contrasena)
+        con.commit()
+        entidad = cursor.fetchone()
+        return entidad
+
+    except Error as e:
+        print ("Error al traer entidad: "+ str(e))
+
+    finally:
+        if con:
+            cursor.close()
+            con.close()
