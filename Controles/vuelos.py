@@ -13,20 +13,16 @@ class Vuelos (QWidget,CrearVuelo):
         self.padre_ventana = parent
         self.setupUi(self)
         self.setWindowFlag (Qt.Window)
-        self.bt_guardarTodo.setEnabled(False)
+        #self.bt_guardarTodo.setEnabled(False)
         self.conCopiloto = False
 
         
         #Cargar tabla pilotos
-        # self.tabla_pilotos()
-        # self.cargar_tabla_pilotos(seleccionar_todos_pilotos())
         self.cargar_tripulacion()
-        #self.event_tripulacion()
         
         #Combo
         self.cargar_combo_aerolineas()
         self.cargar_combo_idaviones()
-        #self.cargar_combo_tripulación()
 
         # #Aceptar general
         self.bt_aceptarGEN.clicked.connect(self.verificacion_campos_general)
@@ -34,17 +30,8 @@ class Vuelos (QWidget,CrearVuelo):
         # #Aceptar avion
         self.bt_aceptarAV.clicked.connect(self.verificacion_campos_avion)
 
-        # #Asignar piloto
-        # self.bt_asigPiloto.clicked.connect(self.traer_info_piloto)
-
-        # #Asignar copiloto
-        # #self.nbt_asigCopi.clicked.connect(self.traer_info_copiloto)
-
-        # #Boton Guardar Vuelo
-        # self.bt_guardarTodo.clicked.connect(self.inf_vuelo)
-
-        # #Boton Borrar vuelo
-        # self.bt_eliminarUNVuelo.clicked.connect(self.eliminar_vuelo)
+        #Boton Guardar Vuelo
+        self.bt_guardarTodo.clicked.connect(self.inf_vuelo)
 
         # #Evento del combo, para que cuando se seleccione llegada se bloquee destino
         # # y cuando se seleccione salida se bloquee origen.
@@ -131,10 +118,8 @@ class Vuelos (QWidget,CrearVuelo):
             dlg.setStandardButtons(QMessageBox.Ok)
             dlg.setIcon(QMessageBox.Critical)
             dlg.show()
-            #b = False
         print("revisado, pasa av")
         print (general)
-        return b
 
 # # -------------------------------------------------------------------------------------
     def info_general (self):
@@ -174,9 +159,10 @@ class Vuelos (QWidget,CrearVuelo):
                 b = False
 
         if b == True:
-            nit = consultar_aerolinea(aerolinea)
+
+            aerolinea = consultar_aerolinea(aerolinea)
             
-            informacion = (cod_vuelo, tipo_vuelo, destino, origen, fsalida, hsalida, nit)
+            informacion = (cod_vuelo, tipo_vuelo, destino, origen, fsalida, hsalida, aerolinea)
             
             print("revisado, pasa")
             return informacion
@@ -187,7 +173,7 @@ class Vuelos (QWidget,CrearVuelo):
         self.cargar_tripulacion()
         self.event_tripulacion()
 
-        identificador = self.textedit_identificador.text()
+        identificador = self.cb_identificador.currentText()
 
         if identificador == '':
             dlg = QMessageBox(self)
@@ -211,22 +197,20 @@ class Vuelos (QWidget,CrearVuelo):
             
         print("revisado, pasa trip")
         #print (avion)
-        return b
-
+        
 # # ------------------------------------------------------------------------------
     def info_avion (self):
+
         identificador = self.cb_identificador.currentText()
         tipo_avion = self.te_tipoAvion.text()
         propulsion = self.te_propulsion.text()
         modelo = self.te_modelo.text()
-        capacidad = int(self.te_capacidad.text())
+        capacidad = int(self.te_capacidad.text()[:-2])
         motores = int(self.te_motores.text())
-        peso = int(self.te_peso.text())
-
-        if tipo_avion == "Pasajeros":
-            self.conCopiloto = True
+        peso = int(self.te_peso.text()[:-2])
 
         avion = (identificador, tipo_avion, propulsion, modelo, capacidad, motores, peso)
+        print(avion)
                     
         i=0; b= True
 
@@ -306,47 +290,76 @@ class Vuelos (QWidget,CrearVuelo):
         #Consultar que tipo de vuelo se hará
         cod_avion = self.cb_identificador.currentText()
         tipo_vuelo = consulta_tipo_vuelo(cod_avion)
-        print (tipo_vuelo)
+
+        characters = "(,')"
+        i=0 
+        while i < len(tipo_vuelo):
+            stringtv = str(tipo_vuelo[i])
+            for x in range(len(characters)):
+                stringtv = stringtv.replace(characters[x],"")
+            i += 1
+
+        print (stringtv)
 
         tripulacion = cod_piloto_copiloto(self.cb_CodigoTripulacion.currentText())
+        print (tripulacion)
+        print(len(tripulacion))
+        
+        codigos=[]
         characters = "(,')"
-
         i=0 
         while i < len(tripulacion):
-            string = str(tripulacion [i])
+            string = str(tripulacion[i])
             for x in range(len(characters)):
                 string = string.replace(characters[x],"")
-        
-        if tipo_vuelo == "Pasajeros":
-            id_piloto = string[0]
-            id_copiloto = string[1]
+            codigos.append(string)
+            i +=1
 
-        else: 
-            id_piloto = string
+        print ("codigos = ",codigos)
+        print(len(codigos))
+
+        if stringtv == "Pasajeros":
+            id_piloto = float(codigos[0])
+            id_copiloto = codigos[1][:-2]
+
+        elif stringtv == "Carga": 
+            id_piloto = float(codigos[0])
             id_copiloto = 0
         
-        print (id_piloto, id_copiloto)
+        #print (id_piloto, id_copiloto)
         return (id_piloto, id_copiloto)
 # # ------------------------------------------------------------------------------------
-#     def inf_vuelo (self):
-#         general = self.info_general()
-#         avion = self.info_avion()
-#         piloto = self.traer_info_piloto()
+    def inf_vuelo (self):
+        general = self.info_general()
+        avion = self.info_avion()
+        piloto = self.traer_info_piloto()
         
-#         if self.conCopiloto == True:
-#             copiloto = self.traer_info_copiloto()
-#         else:
-#             copiloto = 0
+        print(general)
+        print (avion)
+        print(piloto)
+        # id_vuelo, tipo_vuelo, vuelo_pascar, destino, origen, fecha_vuelo, hora_vuelo, aerolinea,
+        # id_avion, id_piloto, id_copiloto, id_agenda, estado
 
-#         informacion_vuelo = (general [0],general [1], avion[1],general [2],general [3],general [4],general [5],general [6],avion[0], piloto, copiloto)
+        informacion_vuelo = (general [0],general [1], avion[1],general [2],general [3],
+                            general [4],general [5],general [6],avion[0], piloto[0], piloto[1], "No Asignado", "No Enviado")
+        print(informacion_vuelo)
         
-#         self.vuelo_crear(informacion_vuelo)
-#         self.actualizar_tb_eliminar_vuelos()
+        self.vuelo_crear(informacion_vuelo)
+        # self.actualizar_tb_eliminar_vuelos()
         
 # # ----------------------------------------------------------------------------------        
-#     def vuelo_crear(self, info_vuelo):
-#         crear_vuelo(info_vuelo)
-#         print("vuelo creado")
+    def vuelo_crear(self, info_vuelo):
+        if crear_vuelo(info_vuelo):
+            self.close()            
+            dlg = QMessageBox(self)
+            dlg.setWindowTitle("Vuelo Creado")
+            dlg.setText("Nuevo vuelo creado con éxito")
+            dlg.setStandardButtons(QMessageBox.Ok)
+            dlg.setIcon(QMessageBox.Information)
+            dlg.show()
+
+            
+        print("vuelo creado")
 
 # # ------------------------------------------------------------------------------------
     def tabla_pilotos (self):
